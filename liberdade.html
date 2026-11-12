@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Liberdade financeira — Lastro</title>
+<meta name="description" content="Calculadora de liberdade financeira da Lastro: descubra o seu número-alvo e em quanto tempo você chega lá.">
+<meta name="theme-color" content="#F4F0E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111614" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.bcb.gov.br https://olinda.bcb.gov.br; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Lastro">
+<meta property="og:title" content="Liberdade financeira — Lastro">
+<meta property="og:description" content="Calculadora de liberdade financeira da Lastro: descubra o seu número-alvo e em quanto tempo você chega lá.">
+<meta property="og:image" content="https://replyfoxx.github.io/lastro/site/og-lastro.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="site/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site/site.css">
+<script src="carteira/js/tema.js"></script>
+</head>
+<body data-pagina="ferramentas">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="dentro">
+    <a class="marca" href="index.html" aria-label="Lastro, página inicial"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false"><rect x="3" y="22" width="26" height="6" rx="2" fill="#1F5D50"/><rect x="7" y="14" width="18" height="6" rx="2" fill="#B07E1A"/><rect x="11" y="6" width="10" height="6" rx="2" fill="#BF4F3C"/></svg><span class="marca-nome">Lastro</span></a>
+    <nav class="nav" aria-label="Principal"><a href="index.html">Início</a><a href="ferramentas.html" aria-current="page">Ferramentas</a><a href="metodo.html">Método</a><a href="aprender.html">Aprender</a><a href="empresa.html">A empresa</a></nav>
+    <div class="topo-acoes">
+      <button type="button" class="btn-topo" id="btn-tema" aria-pressed="false" aria-label="Modo escuro"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="btn-topo" id="btn-nav" aria-expanded="false" aria-controls="nav-movel" aria-label="Menu"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <nav class="nav-movel" id="nav-movel" aria-label="Principal, celular" hidden><a href="index.html">Início</a><a href="ferramentas.html" aria-current="page">Ferramentas</a><a href="metodo.html">Método</a><a href="aprender.html">Aprender</a><a href="empresa.html">A empresa</a></nav>
+</header>
+<main id="conteudo">
+<section class="secao"><div class="dentro">
+  <p class="olho"><a href="ferramentas.html">Ferramentas</a> · Calculadora</p>
+  <h1 class="titulo">Liberdade financeira</h1>
+  <p class="lead" style="margin-bottom:2rem">Quanto patrimônio sustentaria a vida que você quer, e em quanto tempo você chega lá. Tudo em reais de hoje.</p>
+  <div class="ferramenta-grade">
+    <form class="cartao" id="form-liberdade" novalidate>
+      <div class="campo"><label for="gasto">Quanto você quer gastar por mês</label><span class="ajuda">O padrão de vida que quer sustentar sem depender de trabalho.</span><div class="entrada"><span>R$</span><input id="gasto" type="text" inputmode="decimal" autocomplete="off" value="6.000"></div></div>
+      <div class="campo"><label for="patrimonio">Quanto já tem investido</label><div class="entrada"><span>R$</span><input id="patrimonio" type="text" inputmode="decimal" autocomplete="off" value="50.000"></div></div>
+      <div class="campo"><label for="aporte">Quanto investe por mês</label><div class="entrada"><span>R$</span><input id="aporte" type="text" inputmode="decimal" autocomplete="off" value="1.500"></div></div>
+      <div class="campo"><label for="retorno">Retorno real, acima da inflação</label><span class="ajuda">Hipótese. Quanto maior, mais risco é preciso correr para tentar obtê-lo.</span><div class="entrada"><select id="retorno"><option value="2">2% ao ano (cauteloso)</option><option value="3">3% ao ano</option><option value="4" selected>4% ao ano</option><option value="5">5% ao ano</option><option value="6">6% ao ano (otimista)</option></select></div></div>
+      <div class="campo"><label for="retirada">Taxa de retirada</label><span class="ajuda">Quanto do patrimônio você usaria por ano. Menor é mais seguro.</span><div class="entrada"><select id="retirada"><option value="3">3% ao ano (mais seguro)</option><option value="3.5">3,5% ao ano</option><option value="4" selected>4% ao ano (regra prática comum)</option></select></div></div>
+      <p class="erro" id="erro-liberdade" role="alert" hidden></p>
+      <button type="submit" class="btn btn-primario">Calcular</button>
+      <p class="nota" style="margin-top:1rem">Os valores de exemplo são só para mostrar como funciona. Troque pelos seus.</p>
+    </form>
+    <div class="cartao" id="saida-liberdade" aria-live="polite"></div>
+  </div>
+</div></section>
+</main>
+<footer class="rodape">
+  <div class="dentro">
+    <div class="rodape-grade">
+      <div>
+        <p style="font-family:var(--serif);font-size:1.25rem;color:var(--ink);margin-bottom:.3rem">Lastro</p>
+        <p>Valor real antes do preço. Educação financeira de base fundamentalista, para quem busca liberdade e tranquilidade com o próprio dinheiro.</p>
+      </div>
+      <div>
+        <h2>Ferramentas</h2>
+        <ul><li><a href="carteira/">Monte sua carteira</a></li><li><a href="liberdade.html">Liberdade financeira</a></li><li><a href="roteiro.html">Roteiro de análise</a></li><li><a href="mercado.html">Painel de mercado</a></li></ul>
+      </div>
+      <div>
+        <h2>Lastro</h2>
+        <ul><li><a href="empresa.html">A empresa</a></li><li><a href="metodo.html">Nosso método</a></li><li><a href="aprender.html">Aprender</a></li><li><a href="empresa.html#transparencia">Transparência e privacidade</a></li></ul>
+      </div>
+    </div>
+    <p class="rodape-legal">Lastro é um projeto educacional. Não é corretora, gestora, consultoria nem analista de valores mobiliários, não tem registro na CVM e não vende produtos financeiros. Nada aqui é recomendação de investimento individualizada nem promessa de retorno. As decisões e os riscos são de quem investe.</p>
+  </div>
+</footer>
+<script src="site/site.js"></script>
+<script src="site/liberdade.js"></script>
+</body>
+</html>
