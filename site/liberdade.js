@@ -1,10 +1,10 @@
-/* Lastro — calculadora de liberdade financeira.
+/* Cerne — calculadora de liberdade financeira.
  * Tudo em reais de hoje (retorno acima da inflação). São hipóteses, não previsões.
  *   número-alvo = gasto anual desejado ÷ taxa de retirada
  *   patrimônio do mês seguinte = patrimônio × (1 + retorno mensal) + aporte */
 (function () {
   'use strict';
-  var L = window.LASTRO, el = L.el, NS = 'http://www.w3.org/2000/svg';
+  var L = window.CERNE, el = L.el, NS = 'http://www.w3.org/2000/svg';
   var MAX_MESES = 80 * 12;
   var form = document.getElementById('form-liberdade'), saida = document.getElementById('saida-liberdade');
 

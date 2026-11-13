@@ -1,4 +1,4 @@
-/* Lastro — comportamento comum das páginas: tema, menu no celular e
+/* Cerne — comportamento comum das páginas: tema, menu no celular e
  * redirecionamento de links antigos de carteira compartilhada. */
 (function () {
   'use strict';
@@ -31,7 +31,7 @@
 })();
 
 /* Utilidades usadas pelas ferramentas da plataforma. */
-window.LASTRO = {
+window.CERNE = {
   lerNumero: function (txt) {
     var t = String(txt == null ? '' : txt).replace(/R\$|%|\s/g, '');
     if (t === '' || !/^[0-9.,]+$/.test(t) || (t.match(/,/g) || []).length > 1) return null;

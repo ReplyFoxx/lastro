@@ -3,7 +3,7 @@
  * As consultas ao Banco Central NÃO passam por aqui: o próprio app guarda a
  * última cópia dos dados (com a data) no armazenamento do navegador.
  * Ao publicar uma versão nova, mude o número abaixo. */
-const VERSAO = 'msc-v1.2.0';
+const VERSAO = 'msc-v1.2.1';
 const ARQUIVOS = [
   './', 'index.html', 'css/style.css', 'manifest.webmanifest',
   'js/tema.js', 'js/config.js', 'js/engine.js', 'js/textos.js', 'js/macro.js', 'js/share.js',

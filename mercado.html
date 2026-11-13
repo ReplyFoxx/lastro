@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Painel de mercado — Lastro</title>
-<meta name="description" content="Painel de mercado da Lastro: Selic, CDI, inflação e expectativas do Banco Central, taxas do Tesouro Direto e maiores pesos do Ibovespa e do IFIX.">
+<title>Panorama de mercado — Cerne</title>
+<meta name="description" content="Panorama de mercado da Cerne: visão geral, tendências com dados do Banco Central ao vivo, indicadores macroeconômicos e leitura por setor, com fonte e data.">
 <meta name="theme-color" content="#F4F0E6" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111614" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
@@ -12,66 +12,124 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.bcb.gov.br https://olinda.bcb.gov.br; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="Lastro">
-<meta property="og:title" content="Painel de mercado — Lastro">
-<meta property="og:description" content="Painel de mercado da Lastro: Selic, CDI, inflação e expectativas do Banco Central, taxas do Tesouro Direto e maiores pesos do Ibovespa e do IFIX.">
-<meta property="og:image" content="https://replyfoxx.github.io/lastro/site/og-lastro.png">
+<meta property="og:site_name" content="Cerne">
+<meta property="og:title" content="Panorama de mercado — Cerne">
+<meta property="og:description" content="Panorama de mercado da Cerne: visão geral, tendências com dados do Banco Central ao vivo, indicadores macroeconômicos e leitura por setor, com fonte e data.">
+<meta property="og:image" content="https://replyfoxx.github.io/lastro/site/og-cerne.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="site/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="site/site.css">
 <script src="carteira/js/tema.js"></script>
 </head>
-<body data-pagina="ferramentas">
+<body data-pagina="mercado">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="topo">
   <div class="dentro">
-    <a class="marca" href="index.html" aria-label="Lastro, página inicial"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false"><rect x="3" y="22" width="26" height="6" rx="2" fill="#1F5D50"/><rect x="7" y="14" width="18" height="6" rx="2" fill="#B07E1A"/><rect x="11" y="6" width="10" height="6" rx="2" fill="#BF4F3C"/></svg><span class="marca-nome">Lastro</span></a>
-    <nav class="nav" aria-label="Principal"><a href="index.html">Início</a><a href="ferramentas.html" aria-current="page">Ferramentas</a><a href="metodo.html">Método</a><a href="aprender.html">Aprender</a><a href="empresa.html">A empresa</a></nav>
+    <a class="marca" href="index.html" aria-label="Cerne, página inicial"><svg class="logo" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13.4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="14.4" cy="17.2" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12.9" cy="18.4" r="3.3" class="logo-miolo"/></svg><span class="marca-nome">Cerne</span></a>
+    <nav class="nav" aria-label="Principal"><a href="index.html">Início</a><a href="ferramentas.html">Ferramentas</a><a href="metodo.html">Método</a><a href="mercado.html" aria-current="page">Mercado</a><a href="aprender.html">Aprender</a><a href="empresa.html">A empresa</a></nav>
     <div class="topo-acoes">
       <button type="button" class="btn-topo" id="btn-tema" aria-pressed="false" aria-label="Modo escuro"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
       <button type="button" class="btn-topo" id="btn-nav" aria-expanded="false" aria-controls="nav-movel" aria-label="Menu"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
     </div>
   </div>
-  <nav class="nav-movel" id="nav-movel" aria-label="Principal, celular" hidden><a href="index.html">Início</a><a href="ferramentas.html" aria-current="page">Ferramentas</a><a href="metodo.html">Método</a><a href="aprender.html">Aprender</a><a href="empresa.html">A empresa</a></nav>
+  <nav class="nav-movel" id="nav-movel" aria-label="Principal, celular" hidden><a href="index.html">Início</a><a href="ferramentas.html">Ferramentas</a><a href="metodo.html">Método</a><a href="mercado.html" aria-current="page">Mercado</a><a href="aprender.html">Aprender</a><a href="empresa.html">A empresa</a></nav>
 </header>
 <main id="conteudo">
 <section class="secao"><div class="dentro">
-  <p class="olho"><a href="ferramentas.html">Ferramentas</a> · Dados</p>
-  <h1 class="titulo">Painel de mercado</h1>
-  <p class="lead" style="margin-bottom:2rem">O cenário em números de fontes oficiais, cada um com origem e data. Serve de contexto; não diz o que fazer.</p>
-  <section class="cartao" style="margin-bottom:1rem"><h2 class="titulo-2">Juros e inflação</h2><div id="macro"><p role="status">Buscando dados no Banco Central…</p></div></section>
-  <section class="cartao" style="margin-bottom:1rem"><h2 class="titulo-2">Tesouro Direto</h2><div id="tesouro"></div></section>
-  <div class="grade grade-2">
-    <section class="cartao"><h2 class="titulo-2">Maiores pesos do Ibovespa</h2><div id="ibov"></div></section>
-    <section class="cartao"><h2 class="titulo-2">Maiores pesos do IFIX</h2><div id="ifix"></div></section>
+  <div class="cabeca">
+    <p class="olho">Panorama de mercado · edição de 12/11/2026</p>
+    <h1 class="manchete">O juro parou de cair.<br><em>O resto ainda se ajusta.</em></h1>
   </div>
-  <p class="nota" style="margin-top:1rem">Peso grande em um índice indica tamanho e volume de negociação. Não indica qualidade do negócio nem preço justo; para isso, use o <a href="roteiro.html">roteiro de análise</a>.</p>
-  <div class="estreito" style="margin:1.5rem 0 0"><p class="aviso">Conteúdo educacional. Não é recomendação de investimento individualizada e não substitui um profissional habilitado. Não há garantia de retorno.</p></div>
+  <div class="visao">
+    <p class="visao-texto">Em 04/11 o Banco Central manteve a Selic em 13,75% ao ano e interrompeu uma sequência de cinco cortes, citando piora do cenário interno e externo. A bolsa vinha da pior semana em seis anos, na última de outubro, com a reavaliação de preços depois das eleições e a dúvida sobre as contas públicas; a semana seguinte foi de estabilidade. A indústria encolheu 0,8% em setembro, quarta queda em cinco meses, enquanto o desemprego ficou em 5,2%, o menor para o período desde 2012.</p>
+    <ul class="visao-fontes">
+      <li>Copom, decisão de 04/11/2026, via <a href="https://www.oliberal.com/economia/bc-copom-interrompe-ciclo-de-calibracao-e-mantem-taxa-selic-em-13-75-ao-ano-1.1190560" rel="noopener noreferrer" target="_blank">Estadão / O Liberal</a></li>
+      <li>Bolsa, semana até 30/10/2026, <a href="https://diariodocomercio.com.br/financas/ibovespa-tem-pior-semana-om-pressao-externa-e-fiscal/" rel="noopener noreferrer" target="_blank">Diário do Comércio</a>; semana de 2 a 6/11, <a href="https://analisa.genialinvestimentos.com.br/macro-strategy/analises/expresso-bolsa-semanal-petroleo-techs-fiscal" rel="noopener noreferrer" target="_blank">Genial</a></li>
+      <li>Indústria, IBGE, divulgado em 05/11/2026, via <a href="https://www.jornaldocomercio.com/economia/2026/11/1269381-producao-industrial-cai-08-em-setembro-ante-agosto-revela-ibge.html" rel="noopener noreferrer" target="_blank">Jornal do Comércio</a></li>
+      <li>Desemprego, IBGE, divulgado em 30/10/2026, via <a href="https://agenciagov.ebc.com.br/noticias/202610/taxa-de-desemprego-tem-queda-e-alcanca-menor-resultado-para-setembro-em-14-anos" rel="noopener noreferrer" target="_blank">Agência Gov</a></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="secao"><div class="dentro">
+  <div class="cabeca"><p class="olho">Tendências</p><h2 class="titulo-2">Quatro séries, lidas agora no Banco Central</h2><p class="lead">Os números abaixo são buscados ao abrir a página. Cada um traz a data do último dado.</p></div>
+  <div class="tendencias" id="tendencias"><p role="status">Buscando séries no Banco Central…</p></div>
+</div></section>
+
+<section class="secao"><div class="dentro">
+  <div class="cabeca"><p class="olho">Indicadores macroeconômicos</p><h2 class="titulo-2">Hoje e o que o mercado espera</h2></div>
+  <div id="macro"><p role="status">Buscando dados no Banco Central…</p></div>
+</div></section>
+
+<section class="secao"><div class="dentro">
+  <div class="cabeca"><p class="olho">Leitura por setor</p><h2 class="titulo-2">Como três forças do momento atingem cada setor</h2><p class="lead">Opinião da Cerne, edição de 12/11/2026. É um mapa de sensibilidade, e não uma previsão. Dentro de cada setor, as empresas reagem de formas diferentes.</p></div>
+  <div class="tabela-rolagem"><table class="matriz">
+  <thead><tr><th scope="col">Setor</th><th scope="col">Juro alto</th><th scope="col">Dólar mais caro</th><th scope="col">Atividade mais fraca</th><th scope="col">Por quê</th></tr></thead>
+  <tbody><tr><th scope="row">Financeiro</th><td><span class="efeito efeito-misto">misto</span></td><td><span class="efeito efeito-neutro">neutro</span></td><td><span class="efeito efeito-pesa">pesa</span></td><td class="porque">Juro alto engorda a margem do crédito e também a inadimplência.</td></tr><tr><th scope="row">Petróleo, gás e biocombustíveis</th><td><span class="efeito efeito-neutro">neutro</span></td><td><span class="efeito efeito-ajuda">ajuda</span></td><td><span class="efeito efeito-neutro">neutro</span></td><td class="porque">Receita em dólar. O que manda é o preço do barril, que caiu forte na semana de 2 a 6/11.</td></tr><tr><th scope="row">Materiais básicos</th><td><span class="efeito efeito-neutro">neutro</span></td><td><span class="efeito efeito-ajuda">ajuda</span></td><td><span class="efeito efeito-pesa">pesa</span></td><td class="porque">Preços definidos lá fora. Alumínio a US$ 3.226 por tonelada no 3º trimestre, 23% acima de um ano antes.</td></tr><tr class="destaque"><th scope="row">Bens industriais</th><td><span class="efeito efeito-pesa">pesa</span></td><td><span class="efeito efeito-misto">misto</span></td><td><span class="efeito efeito-pesa">pesa</span></td><td class="porque">Dívida longa em concessões e ferrovias; exportadoras ganham com o câmbio. Veja o estudo abaixo.</td></tr><tr><th scope="row">Consumo cíclico</th><td><span class="efeito efeito-pesa">pesa</span></td><td><span class="efeito efeito-pesa">pesa</span></td><td><span class="efeito efeito-pesa">pesa</span></td><td class="porque">Depende de crédito e de confiança. O emprego ainda forte amortece.</td></tr><tr><th scope="row">Consumo não cíclico</th><td><span class="efeito efeito-neutro">neutro</span></td><td><span class="efeito efeito-misto">misto</span></td><td><span class="efeito efeito-neutro">neutro</span></td><td class="porque">Demanda estável. Exportadoras de alimento ganham com o dólar; quem importa insumo perde.</td></tr><tr><th scope="row">Saúde</th><td><span class="efeito efeito-pesa">pesa</span></td><td><span class="efeito efeito-pesa">pesa</span></td><td><span class="efeito efeito-neutro">neutro</span></td><td class="porque">Empresas endividadas e insumos importados; a demanda quase não varia.</td></tr><tr><th scope="row">Tecnologia da informação</th><td><span class="efeito efeito-pesa">pesa</span></td><td><span class="efeito efeito-misto">misto</span></td><td><span class="efeito efeito-pesa">pesa</span></td><td class="porque">Lucro esperado para longe vale menos quando o juro sobe.</td></tr><tr><th scope="row">Comunicações</th><td><span class="efeito efeito-pesa">pesa</span></td><td><span class="efeito efeito-pesa">pesa</span></td><td><span class="efeito efeito-neutro">neutro</span></td><td class="porque">Investimento alto e equipamento importado; receita recorrente.</td></tr><tr><th scope="row">Utilidade pública</th><td><span class="efeito efeito-pesa">pesa</span></td><td><span class="efeito efeito-neutro">neutro</span></td><td><span class="efeito efeito-neutro">neutro</span></td><td class="porque">Dívida longa pesa, mas parte das tarifas acompanha a inflação.</td></tr></tbody>
+</table></div>
+  <p class="nota" style="margin-top:.8rem">Setores conforme a classificação da B3. Dado do petróleo: Genial, semana de 2 a 6/11/2026. Dado do alumínio: preço médio na LME no 3º trimestre de 2026, citado no resultado da CBA de 04/11/2026.</p>
+</div></section>
+
+<section class="secao" id="industriais"><div class="dentro">
+  <div class="cabeca"><p class="olho">Setor em foco · pesquisa semanal de 12/11/2026</p><h2 class="titulo-2">Bens industriais: o trimestre separou quem deve de quem exporta</h2><p class="lead">Resultados do 3º trimestre de 2026 das maiores empresas do setor, divulgados entre 21/10 e 10/11. Os nomes aparecem como origem do dado; não há indicação de compra ou venda.</p></div>
+  <div class="foco-grade">
+    <figure class="foco-grafico">
+      <figcaption><b>Lucro do 3º trimestre de 2026</b> contra o mesmo trimestre de 2025</figcaption>
+      <div class="barras" role="img" aria-label="Lucro do terceiro trimestre de 2026 contra o mesmo trimestre de 2025, por segmento de bens industriais"><div class="barra-linha"><div class="barra-nome"><b>Máquinas e equipamentos</b><span>WEG</span></div><div class="barra-trilho"><i class="pos" style="left:50%;width:0.9%"></i></div><div class="barra-valor">+0,9%</div></div><div class="barra-linha"><div class="barra-nome"><b>Aeronáutica e defesa</b><span>Embraer, lucro ajustado</span></div><div class="barra-trilho"><i class="neg" style="left:34.4%;width:15.6%"></i></div><div class="barra-valor">−15,6%</div></div><div class="barra-linha"><div class="barra-nome"><b>Concessões rodoviárias</b><span>Motiva, lucro ajustado</span></div><div class="barra-trilho"><i class="pos" style="left:50%;width:9.8%"></i></div><div class="barra-valor">+9,8%</div></div><div class="barra-linha"><div class="barra-nome"><b>Ônibus e carrocerias</b><span>Marcopolo</span></div><div class="barra-trilho"><i class="neg" style="left:6.600000000000001%;width:43.4%"></i></div><div class="barra-valor">−43,4%</div></div><div class="barra-linha"><div class="barra-nome"><b>Alumínio</b><span>CBA, com ganho que não se repete</span></div><div class="barra-trilho"><i class="pos corta" style="left:50%;width:50%"></i></div><div class="barra-valor">+366%</div></div><div class="barra-linha"><div class="barra-nome"><b>Ferrovias</b><span>Rumo</span></div><div class="barra-trilho"></div><div class="barra-valor vazio">não encontrado</div></div><div class="barra-linha"><div class="barra-nome"><b>Serviços terceirizados</b><span>GPS</span></div><div class="barra-trilho"></div><div class="barra-valor vazio">não encontrado</div></div></div>
+      <p class="nota">A barra do alumínio está cortada. Sem o ganho que não se repete, a alta seria de cerca de 128% (calculado: 301 ÷ 132 − 1, em R$ milhões). Ferrovias e serviços: resultado não encontrado até 12/11/2026.</p>
+    </figure>
+    <ol class="leituras">
+      <li><h3>Juro alto cobra de quem tem dívida longa</h3><p>A maior concessionária de rodovias lucrou mais que o esperado em 28/10, com dívida líquida de 3,2 vezes o Ebitda, e mesmo assim as ações caíram quase 30% depois de 26/10. Na ferrovia, o volume do 2º trimestre subiu 9,1% e a alavancagem foi de 1,8 para 2,1 vezes.</p></li>
+      <li><h3>Vender para fora ajuda, mas o câmbio decide a margem</h3><p>Em máquinas e equipamentos, o exterior chegou a 62,5% da receita, um recorde, e a margem Ebitda de 21,6% foi a menor desde o início de 2025. Em ônibus, a receita internacional caiu 21,4% e o lucro, 43,4%. Esses números são de julho a setembro, antes da alta recente do dólar.</p></li>
+      <li><h3>Carteira de pedidos longa dá visibilidade</h3><p>Na aeronáutica, os pedidos em carteira somaram US$ 35,7 bilhões, recorde, com defesa em alta de 56%. O lucro ajustado caiu 15,6% por causa do resultado financeiro, e a projeção de caixa para o ano subiu.</p></li>
+      <li><h3>Lucro recorde pede leitura das notas</h3><p>Dois resultados do trimestre foram inflados por ganhos únicos: R$ 2,72 bilhões com a venda de aeroportos, nas concessões, e R$ 315 milhões com a quitação de uma obrigação, no alumínio. É o caso da etapa 5 do <a href="metodo.html#etapa-5">método</a>.</p></li>
+    </ol>
+  </div>
+  <div class="agenda">
+    <p><b>Mudanças de controle</b>O controle da produtora de alumínio foi vendido em 29/01/2026 a uma associação de grupos chinês e anglo-australiano; a oferta aos demais acionistas ainda não foi lançada.</p>
+    <p><b>Projeções revistas</b>Em autopeças, a projeção de receita de 2026 foi cortada em 20/10, por câmbio, abastecimento e mercado argentino.</p>
+    <p><b>Atividade</b>A produção nacional de carrocerias de ônibus caiu 7,1% no 3º trimestre, segundo a Fabus.</p>
+  </div>
+  <details class="aula" style="margin-top:1.5rem"><summary>Limites e fontes deste estudo</summary><div>
+    <p>O estudo cobre oito empresas com valor de mercado acima de R$ 4 bilhões. Os números vêm de sites que citam a CVM e da imprensa, e não dos documentos originais. Onde as fontes divergem, usamos o dado da própria empresa. Resultados de ferrovias e de serviços terceirizados do 3º trimestre não foram encontrados.</p>
+    <ul class="fontes">
+      <li><a href="https://cenarioenergia.com.br/2026/10/21/weg-lucra-r-167-bilhao-no-3t26-mas-margem-ebitda-recua/" rel="noopener noreferrer" target="_blank">WEG, 3º trimestre (Cenário Energia, 21/10/2026)</a></li>
+      <li><a href="https://acionista.com.br/embraer-embj3-registra-carteira-de-pedidos-recorde-de-us357-bilhoes-no-3t26/" rel="noopener noreferrer" target="_blank">Embraer, carteira de pedidos (Acionista, 23/10/2026)</a></li>
+      <li><a href="https://investidor10.com.br/noticias/embraer-embj3-lucro-ajustado-cai-15-6-no-3t26-para-r-379-8-milhoes-123795/" rel="noopener noreferrer" target="_blank">Embraer, lucro ajustado (Investidor10, 11/2026)</a></li>
+      <li><a href="https://www.seudinheiro.com/2026/economia/lucro-cresce-caixa-surpreende-citi-volta-recomendar-compra-para-motiva-motv3-mlem/" rel="noopener noreferrer" target="_blank">Motiva, 3º trimestre (Seu Dinheiro, 29/10/2026)</a></li>
+      <li><a href="https://www.dgabc.com.br/Noticia/4365621/motiva-tem-lucro-liquido-ajustado-consolidado-de-r-750-mi-no-3-trimestre-alta-de-9-8" rel="noopener noreferrer" target="_blank">Motiva, venda de aeroportos (DGABC, 10/2026)</a></li>
+      <li><a href="https://www.analisedeacoes.com/noticias/rumo-rail3-registra-lucro-de-688-milhoes-/" rel="noopener noreferrer" target="_blank">Rumo, 2º trimestre (Análise de Ações, 2026)</a></li>
+      <li><a href="https://www.jornaldocomercio.com/economia/2026/11/1269285-marcopolo-tem-lucro-434-menor-no-3tri26-ante-3tri25-de-rs-1865-milhoes.html" rel="noopener noreferrer" target="_blank">Marcopolo, 3º trimestre (Jornal do Comércio, 04/11/2026)</a></li>
+      <li><a href="https://www.dgabc.com.br/Noticia/4366913/cba-tem-lucro-recorde-de-r-616-milhoes-no-3-trimestre-alta-de-366" rel="noopener noreferrer" target="_blank">CBA, 3º trimestre (DGABC, 04/11/2026)</a></li>
+      <li><a href="https://timesbrasil.com.br/empresas-e-negocios/votorantim-vende-cba-rio-tinto-chinalco/" rel="noopener noreferrer" target="_blank">CBA, venda de controle (Times Brasil, 30/01/2026)</a></li>
+      <li><a href="https://brapi.dev/news/frasle-corta-previsao-de-receita-de-2026-para-faixa-de-r-5-e2e1fb6f" rel="noopener noreferrer" target="_blank">Frasle, projeção de 2026 (brapi, 20/10/2026)</a></li>
+      <li><a href="https://investidor10.com.br/setores/bens-industriais/" rel="noopener noreferrer" target="_blank">Lista do setor (Investidor10, 12/11/2026)</a></li>
+    </ul></div></details>
+  <div class="estreito" style="margin:2rem 0 0"><p class="aviso">Conteúdo educacional. Não é recomendação de investimento individualizada e não substitui um profissional habilitado. Não há garantia de retorno.</p></div>
 </div></section>
 </main>
 <footer class="rodape">
   <div class="dentro">
     <div class="rodape-grade">
       <div>
-        <p style="font-family:var(--serif);font-size:1.25rem;color:var(--ink);margin-bottom:.3rem">Lastro</p>
+        <p class="rodape-marca"><svg class="logo" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13.4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="14.4" cy="17.2" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12.9" cy="18.4" r="3.3" class="logo-miolo"/></svg><span>Cerne</span></p>
         <p>Valor real antes do preço. Educação financeira de base fundamentalista, para quem busca liberdade e tranquilidade com o próprio dinheiro.</p>
       </div>
       <div>
         <h2>Ferramentas</h2>
-        <ul><li><a href="carteira/">Monte sua carteira</a></li><li><a href="liberdade.html">Liberdade financeira</a></li><li><a href="roteiro.html">Roteiro de análise</a></li><li><a href="mercado.html">Painel de mercado</a></li></ul>
+        <ul><li><a href="carteira/">Monte sua carteira</a></li><li><a href="juros.html">Juros compostos</a></li><li><a href="liberdade.html">Liberdade financeira</a></li><li><a href="roteiro.html">Checagem do estudo</a></li></ul>
       </div>
       <div>
-        <h2>Lastro</h2>
-        <ul><li><a href="empresa.html">A empresa</a></li><li><a href="metodo.html">Nosso método</a></li><li><a href="aprender.html">Aprender</a></li><li><a href="empresa.html#transparencia">Transparência e privacidade</a></li></ul>
+        <h2>Cerne</h2>
+        <ul><li><a href="metodo.html">Como estudar uma empresa</a></li><li><a href="mercado.html">Panorama de mercado</a></li><li><a href="aprender.html">Aprender</a></li><li><a href="empresa.html">A empresa</a></li><li><a href="empresa.html#transparencia">Transparência e privacidade</a></li></ul>
       </div>
     </div>
-    <p class="rodape-legal">Lastro é um projeto educacional. Não é corretora, gestora, consultoria nem analista de valores mobiliários, não tem registro na CVM e não vende produtos financeiros. Nada aqui é recomendação de investimento individualizada nem promessa de retorno. As decisões e os riscos são de quem investe.</p>
+    <p class="rodape-legal">Cerne é um projeto educacional. Não é corretora, gestora, consultoria nem analista de valores mobiliários, não tem registro na CVM e não vende produtos financeiros. Nada aqui é recomendação de investimento individualizada nem promessa de retorno. As decisões e os riscos são de quem investe.</p>
   </div>
 </footer>
 <script src="site/site.js"></script>
 <script src="carteira/js/config.js"></script>
 <script src="carteira/js/macro.js"></script>
-<script src="carteira/js/ativos.js"></script>
 <script src="site/mercado.js"></script>
 </body>
 </html>

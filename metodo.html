@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nosso método — Lastro</title>
-<meta name="description" content="Como a Lastro olha para investimentos: análise fundamentalista focada no valor real do negócio, com indicadores como pista e não como resposta.">
+<title>Como estudar uma empresa — Cerne</title>
+<meta name="description" content="O método da Cerne em oito etapas, na ordem de execução: o que fazer, por onde começar, quais fontes consultar e o que entregar em cada uma.">
 <meta name="theme-color" content="#F4F0E6" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111614" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
@@ -12,10 +12,10 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.bcb.gov.br https://olinda.bcb.gov.br; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="Lastro">
-<meta property="og:title" content="Nosso método — Lastro">
-<meta property="og:description" content="Como a Lastro olha para investimentos: análise fundamentalista focada no valor real do negócio, com indicadores como pista e não como resposta.">
-<meta property="og:image" content="https://replyfoxx.github.io/lastro/site/og-lastro.png">
+<meta property="og:site_name" content="Cerne">
+<meta property="og:title" content="Como estudar uma empresa — Cerne">
+<meta property="og:description" content="O método da Cerne em oito etapas, na ordem de execução: o que fazer, por onde começar, quais fontes consultar e o que entregar em cada uma.">
+<meta property="og:image" content="https://replyfoxx.github.io/lastro/site/og-cerne.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="site/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="site/site.css">
@@ -25,74 +25,172 @@
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="topo">
   <div class="dentro">
-    <a class="marca" href="index.html" aria-label="Lastro, página inicial"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false"><rect x="3" y="22" width="26" height="6" rx="2" fill="#1F5D50"/><rect x="7" y="14" width="18" height="6" rx="2" fill="#B07E1A"/><rect x="11" y="6" width="10" height="6" rx="2" fill="#BF4F3C"/></svg><span class="marca-nome">Lastro</span></a>
-    <nav class="nav" aria-label="Principal"><a href="index.html">Início</a><a href="ferramentas.html">Ferramentas</a><a href="metodo.html" aria-current="page">Método</a><a href="aprender.html">Aprender</a><a href="empresa.html">A empresa</a></nav>
+    <a class="marca" href="index.html" aria-label="Cerne, página inicial"><svg class="logo" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13.4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="14.4" cy="17.2" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12.9" cy="18.4" r="3.3" class="logo-miolo"/></svg><span class="marca-nome">Cerne</span></a>
+    <nav class="nav" aria-label="Principal"><a href="index.html">Início</a><a href="ferramentas.html">Ferramentas</a><a href="metodo.html" aria-current="page">Método</a><a href="mercado.html">Mercado</a><a href="aprender.html">Aprender</a><a href="empresa.html">A empresa</a></nav>
     <div class="topo-acoes">
       <button type="button" class="btn-topo" id="btn-tema" aria-pressed="false" aria-label="Modo escuro"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
       <button type="button" class="btn-topo" id="btn-nav" aria-expanded="false" aria-controls="nav-movel" aria-label="Menu"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
     </div>
   </div>
-  <nav class="nav-movel" id="nav-movel" aria-label="Principal, celular" hidden><a href="index.html">Início</a><a href="ferramentas.html">Ferramentas</a><a href="metodo.html" aria-current="page">Método</a><a href="aprender.html">Aprender</a><a href="empresa.html">A empresa</a></nav>
+  <nav class="nav-movel" id="nav-movel" aria-label="Principal, celular" hidden><a href="index.html">Início</a><a href="ferramentas.html">Ferramentas</a><a href="metodo.html" aria-current="page">Método</a><a href="mercado.html">Mercado</a><a href="aprender.html">Aprender</a><a href="empresa.html">A empresa</a></nav>
 </header>
 <main id="conteudo">
 <section class="secao"><div class="dentro">
-  <p class="olho">Nosso método</p>
-  <h1 class="titulo">Primeiro o negócio.<br>Depois os números.<br>Por último o preço.</h1>
-  <p class="lead">Somos fundamentalistas. Isso quer dizer tratar cada ação como parte de uma empresa de verdade, e estudar essa empresa antes de olhar a cotação.</p>
-  <div class="regua" style="margin-top:2rem" aria-hidden="true"></div>
-  <div class="texto">
-    <h2>Por que indicadores sozinhos não bastam</h2>
-    <p>Indicadores são úteis: resumem em um número o que levaria horas para ler. O problema é parar neles. Um indicador mostra o que aconteceu, mas não explica por quê, nem se vai continuar.</p>
-    <div class="dupla" style="margin:1.2rem 0">
-      <div class="cartao"><h3>O que o indicador mostra</h3><ul>
-        <li>Preço baixo em relação ao lucro</li><li>Dividendo alto em relação ao preço</li><li>Retorno alto sobre o patrimônio</li><li>Lucro crescendo no último ano</li></ul></div>
-      <div class="cartao"><h3>O que pode estar por trás</h3><ul>
-        <li>Lucro que o mercado espera ver cair</li><li>Pagamento único, que não se repete</li><li>Muita dívida, e não um bom negócio</li><li>Venda de um ativo, e não da operação</li></ul></div>
-    </div>
-    <p>Por isso usamos os indicadores para fazer perguntas, e os relatórios, a história e o setor da empresa para respondê-las.</p>
-
-    <h2>As cinco perguntas</h2>
-    <h3>1. O negócio</h3>
-    <p>O que a empresa vende, para quem, e por que o cliente volta. Se não dá para explicar em duas frases, ainda não dá para avaliar. Preferimos negócios simples de entender a histórias complicadas que parecem promissoras.</p>
-    <h3>2. A vantagem</h3>
-    <p>O que impede um concorrente de fazer igual e mais barato: marca, escala, rede de clientes, custo, licença. Sem alguma proteção, lucro alto atrai concorrência e tende a encolher.</p>
-    <h3>3. As pessoas</h3>
-    <p>Quem administra, quanto tem do próprio patrimônio na empresa, como usou o lucro no passado e como trata os sócios minoritários. Bons números com má governança costumam durar pouco.</p>
-    <h3>4. As contas</h3>
-    <p>Aqui entram os indicadores, como consequência do que veio antes. Olhamos se o lucro vira caixa, se a dívida cabe com folga num ano ruim e se os resultados se repetem por cinco a dez anos, incluindo crises.</p>
-    <h3>5. O preço</h3>
-    <p>Só então comparamos o que a empresa vale com o que ela custa. Toda estimativa de valor tem erro; por isso só faz sentido pagar com folga em relação à estimativa. Essa folga é a margem de segurança.</p>
-
-    <h2>O que isso muda na prática</h2>
-    <ul>
-      <li><strong>Menos movimento.</strong> Quem conhece o negócio não precisa reagir a cada oscilação.</li>
-      <li><strong>Prazo longo.</strong> Valor leva anos para aparecer no preço. Dinheiro com data marcada não vai para ações.</li>
-      <li><strong>Reserva antes de tudo.</strong> Sem reserva de emergência, qualquer imprevisto obriga a vender na hora errada.</li>
-      <li><strong>Diversificação com critério.</strong> Poucas coisas bem entendidas valem mais do que muitas que ninguém estudou, mas nenhuma certeza justifica concentrar tudo.</li>
-      <li><strong>Humildade.</strong> Análise reduz o risco de errar, não elimina. Empresas boas também decepcionam.</li>
-    </ul>
-    <p style="margin-top:1.5rem"><a class="btn btn-primario" href="roteiro.html">Aplicar o método a uma empresa</a></p>
-    <p class="aviso">Conteúdo educacional. Não é recomendação de investimento individualizada e não substitui um profissional habilitado. Não há garantia de retorno.</p>
+  <div class="cabeca">
+    <p class="olho">Método Cerne</p>
+    <h1 class="manchete">Como estudar<br>uma empresa</h1>
+    <p class="lead">Oito etapas, na ordem em que devem ser feitas. Cada uma termina com algo escrito. Sem o entregável, não passe à seguinte.</p>
   </div>
+  <div class="metodo-resumo">
+    <p><b>13 horas</b><span>para o primeiro estudo completo</span></p>
+    <p><b>7 documentos</b><span>escritos por você ao fim</span></p>
+    <p><b>Etapa 7</b><span>é quando o preço entra</span></p>
+  </div>
+  <nav class="trilha-nav" aria-label="Etapas do método"><ol class="trilha trilha-linha"><li><a href="#etapa-1"><span>1</span>Reúna os documentos</a></li><li><a href="#etapa-2"><span>2</span>Entenda o negócio</a></li><li><a href="#etapa-3"><span>3</span>Situe a empresa no setor</a></li><li><a href="#etapa-4"><span>4</span>Conheça quem manda</a></li><li><a href="#etapa-5"><span>5</span>Leia dez anos de contas</a></li><li><a href="#etapa-6"><span>6</span>Estime o valor</a></li><li><a href="#etapa-7"><span>7</span>Compare com o preço e registre</a></li><li><a href="#etapa-8"><span>8</span>Acompanhe a tese</a></li></ol></nav>
+</div></section>
+
+<section class="secao"><div class="dentro">
+  <ol class="etapas">
+  <li class="etapa" id="etapa-1">
+    <div class="etapa-num" aria-hidden="true">1</div>
+    <div class="etapa-corpo">
+      <h2><span class="sr-only">Etapa 1: </span>Reúna os documentos</h2>
+      <p class="etapa-tempo">Reserve 30 min</p>
+      <dl class="ficha">
+        <div><dt>O que fazer</dt><dd>Escolha uma empresa só e crie uma pasta para ela. Baixe tudo antes de ler qualquer coisa, para não estudar pela notícia do dia.</dd></div>
+        <div><dt>Por onde começar</dt><dd>Pela página de Relações com Investidores (RI) da própria empresa. O que faltar, busque na consulta de documentos da CVM.</dd></div>
+        <div><dt>Fontes</dt><dd><ul><li>Site de RI da empresa</li><li>CVM, consulta de documentos de companhias abertas</li><li>B3, página da empresa listada</li></ul></dd></div>
+        <div class="ficha-entrega"><dt>Entregável</dt><dd>Uma pasta com o Formulário de Referência mais recente, as demonstrações anuais (DFP) dos últimos cinco a dez anos, o último trimestral (ITR) e a apresentação institucional.</dd></div>
+      </dl>
+    </div>
+  </li>
+  <li class="etapa" id="etapa-2">
+    <div class="etapa-num" aria-hidden="true">2</div>
+    <div class="etapa-corpo">
+      <h2><span class="sr-only">Etapa 2: </span>Entenda o negócio</h2>
+      <p class="etapa-tempo">Reserve 2 h</p>
+      <dl class="ficha">
+        <div><dt>O que fazer</dt><dd>Descubra o que a empresa vende, para quem, e de onde vem cada real de receita. Ignore a cotação nesta etapa.</dd></div>
+        <div><dt>Por onde começar</dt><dd>Pela seção "Atividades do emissor" do Formulário de Referência. Depois, a apresentação institucional.</dd></div>
+        <div><dt>Fontes</dt><dd><ul><li>Formulário de Referência, seção de atividades</li><li>Apresentação institucional</li><li>Nota de informações por segmento, na DFP</li></ul></dd></div>
+        <div class="ficha-entrega"><dt>Entregável</dt><dd>Duas frases que explicam como a empresa ganha dinheiro, e uma tabela com a receita por produto, tipo de cliente e região.</dd></div>
+      </dl>
+    </div>
+  </li>
+  <li class="etapa" id="etapa-3">
+    <div class="etapa-num" aria-hidden="true">3</div>
+    <div class="etapa-corpo">
+      <h2><span class="sr-only">Etapa 3: </span>Situe a empresa no setor</h2>
+      <p class="etapa-tempo">Reserve 2 h</p>
+      <dl class="ficha">
+        <div><dt>O que fazer</dt><dd>Liste os concorrentes e procure o que impede um deles de fazer o mesmo por menos: marca, escala, rede, custo ou licença.</dd></div>
+        <div><dt>Por onde começar</dt><dd>Pelos trechos sobre concorrência e sobre regulação no Formulário de Referência. Em seguida, leia o relatório anual do maior concorrente.</dd></div>
+        <div><dt>Fontes</dt><dd><ul><li>Relatórios dos concorrentes listados</li><li>Associação do setor e agência reguladora (Aneel, ANTT, ANP, ANS, Anatel, Banco Central)</li><li>Pesquisas mensais do IBGE</li></ul></dd></div>
+        <div class="ficha-entrega"><dt>Entregável</dt><dd>Um quadro com três concorrentes, comparando receita e margem em cinco anos, e uma frase sobre a vantagem da empresa, apoiada em um número desse quadro.</dd></div>
+      </dl>
+    </div>
+  </li>
+  <li class="etapa" id="etapa-4">
+    <div class="etapa-num" aria-hidden="true">4</div>
+    <div class="etapa-corpo">
+      <h2><span class="sr-only">Etapa 4: </span>Conheça quem manda</h2>
+      <p class="etapa-tempo">Reserve 1 h 30</p>
+      <dl class="ficha">
+        <div><dt>O que fazer</dt><dd>Identifique o controlador, quanto ele tem da empresa, como os administradores são pagos e o que foi feito com o lucro até hoje.</dd></div>
+        <div><dt>Por onde começar</dt><dd>Pelas seções de controle, administração e remuneração do Formulário de Referência. Depois, a carta ou o relatório do pior ano recente.</dd></div>
+        <div><dt>Fontes</dt><dd><ul><li>Formulário de Referência: controle, administração, remuneração e partes relacionadas</li><li>Atas de assembleia</li><li>Fatos relevantes dos últimos três anos</li></ul></dd></div>
+        <div class="ficha-entrega"><dt>Entregável</dt><dd>Uma ficha de governança: controlador e participação, ações em circulação, a que a remuneração está atrelada, destino do lucro em cinco anos e um ponto de atenção.</dd></div>
+      </dl>
+    </div>
+  </li>
+  <li class="etapa" id="etapa-5">
+    <div class="etapa-num" aria-hidden="true">5</div>
+    <div class="etapa-corpo">
+      <h2><span class="sr-only">Etapa 5: </span>Leia dez anos de contas</h2>
+      <p class="etapa-tempo">Reserve 4 h</p>
+      <dl class="ficha">
+        <div><dt>O que fazer</dt><dd>Monte uma planilha simples e preencha ano a ano. Leia as notas explicativas sempre que um número saltar.</dd></div>
+        <div><dt>Por onde começar</dt><dd>Pela demonstração do fluxo de caixa, porque caixa é mais difícil de enfeitar. Só depois o resultado e o balanço.</dd></div>
+        <div><dt>Fontes</dt><dd><ul><li>DFP de cada ano, com notas explicativas</li><li>Comentários dos diretores, no Formulário de Referência</li><li>Release de resultados, para conferir ajustes</li></ul></dd></div>
+        <div class="ficha-entrega"><dt>Entregável</dt><dd>Uma planilha com receita, lucro, caixa das operações, investimentos, dívida líquida e patrimônio, e três conclusões: se o lucro vira caixa, se a dívida cabe num ano ruim e se o resultado se repete.</dd></div>
+      </dl>
+    </div>
+  </li>
+  <li class="etapa" id="etapa-6">
+    <div class="etapa-num" aria-hidden="true">6</div>
+    <div class="etapa-corpo">
+      <h2><span class="sr-only">Etapa 6: </span>Estime o valor</h2>
+      <p class="etapa-tempo">Reserve 2 h</p>
+      <dl class="ficha">
+        <div><dt>O que fazer</dt><dd>Calcule quanto a empresa vale pelo que gera, em três cenários. Use lucro ou caixa normalizado, sem os ganhos que não se repetem.</dd></div>
+        <div><dt>Por onde começar</dt><dd>Pelo cenário pessimista. Escreva cada premissa antes de fazer a conta: crescimento, margem e taxa de desconto.</dd></div>
+        <div><dt>Fontes</dt><dd><ul><li>A sua planilha da etapa 5</li><li>Projeções divulgadas pela empresa, quando existem</li><li>Juro real de longo prazo, como piso de comparação</li></ul></dd></div>
+        <div class="ficha-entrega"><dt>Entregável</dt><dd>Uma faixa de valor por ação, do pessimista ao otimista, com as premissas escritas ao lado de cada número.</dd></div>
+      </dl>
+    </div>
+  </li>
+  <li class="etapa" id="etapa-7">
+    <div class="etapa-num" aria-hidden="true">7</div>
+    <div class="etapa-corpo">
+      <h2><span class="sr-only">Etapa 7: </span>Compare com o preço e registre</h2>
+      <p class="etapa-tempo">Reserve 1 h</p>
+      <dl class="ficha">
+        <div><dt>O que fazer</dt><dd>Só agora olhe a cotação. Defina a folga que você exige entre o valor estimado e o preço, maior quanto mais incerto o negócio.</dd></div>
+        <div><dt>Por onde começar</dt><dd>Pela pergunta inversa: o que precisa ser verdade para o preço atual fazer sentido? Compare com os seus cenários.</dd></div>
+        <div><dt>Fontes</dt><dd><ul><li>Cotação e número de ações, na B3</li><li>A sua faixa de valor da etapa 6</li></ul></dd></div>
+        <div class="ficha-entrega"><dt>Entregável</dt><dd>Uma página com a tese em cinco linhas, o preço-limite que você aceita e três fatos que fariam você mudar de ideia.</dd></div>
+      </dl>
+    </div>
+  </li>
+  <li class="etapa" id="etapa-8">
+    <div class="etapa-num" aria-hidden="true">8</div>
+    <div class="etapa-corpo">
+      <h2><span class="sr-only">Etapa 8: </span>Acompanhe a tese</h2>
+      <p class="etapa-tempo">Reserve 1 h por trimestre</p>
+      <dl class="ficha">
+        <div><dt>O que fazer</dt><dd>A cada resultado, confira se os fatos da sua página continuam verdadeiros. Acompanhe o negócio, e não a cotação.</dd></div>
+        <div><dt>Por onde começar</dt><dd>Pelo release do trimestre, lido ao lado da sua página da etapa 7.</dd></div>
+        <div><dt>Fontes</dt><dd><ul><li>ITR e release de resultados</li><li>Teleconferência de resultados</li><li>Fatos relevantes</li></ul></dd></div>
+        <div class="ficha-entrega"><dt>Entregável</dt><dd>Uma linha no diário a cada trimestre: tese intacta, enfraquecida ou quebrada, com o motivo.</dd></div>
+      </dl>
+    </div>
+  </li>
+  </ol>
+</div></section>
+
+<section class="secao"><div class="dentro">
+  <div class="cabeca"><p class="olho">Antes de confiar num número</p><h2 class="titulo-2">O indicador mostra. O documento explica.</h2></div>
+  <div class="tabela-rolagem"><table class="pares">
+    <thead><tr><th scope="col">O que o indicador mostra</th><th scope="col">O que pode estar por trás</th><th scope="col">Onde conferir</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Preço baixo em relação ao lucro</th><td>Lucro que deve cair, ou ganho que não se repete</td><td>Etapa 5, notas explicativas</td></tr>
+      <tr><th scope="row">Dividendo alto em relação ao preço</th><td>Pagamento extraordinário, feito uma vez</td><td>Etapa 4, destino do lucro</td></tr>
+      <tr><th scope="row">Retorno alto sobre o patrimônio</th><td>Muita dívida, e não um bom negócio</td><td>Etapa 5, dívida líquida</td></tr>
+      <tr><th scope="row">Lucro crescendo no ano</th><td>Venda de um ativo, e não da operação</td><td>Etapa 5, fluxo de caixa</td></tr>
+    </tbody>
+  </table></div>
+  <p class="lead" style="margin-top:2rem">Terminou as oito etapas? Passe o seu estudo pela checagem de vinte pontos.</p>
+  <p style="margin-top:1rem"><a class="btn btn-primario" href="roteiro.html">Conferir meu estudo</a></p>
+  <div class="estreito" style="margin-top:2rem"><p class="aviso">Conteúdo educacional. Não é recomendação de investimento individualizada e não substitui um profissional habilitado. Não há garantia de retorno.</p></div>
 </div></section>
 </main>
 <footer class="rodape">
   <div class="dentro">
     <div class="rodape-grade">
       <div>
-        <p style="font-family:var(--serif);font-size:1.25rem;color:var(--ink);margin-bottom:.3rem">Lastro</p>
+        <p class="rodape-marca"><svg class="logo" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13.4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="14.4" cy="17.2" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12.9" cy="18.4" r="3.3" class="logo-miolo"/></svg><span>Cerne</span></p>
         <p>Valor real antes do preço. Educação financeira de base fundamentalista, para quem busca liberdade e tranquilidade com o próprio dinheiro.</p>
       </div>
       <div>
         <h2>Ferramentas</h2>
-        <ul><li><a href="carteira/">Monte sua carteira</a></li><li><a href="liberdade.html">Liberdade financeira</a></li><li><a href="roteiro.html">Roteiro de análise</a></li><li><a href="mercado.html">Painel de mercado</a></li></ul>
+        <ul><li><a href="carteira/">Monte sua carteira</a></li><li><a href="juros.html">Juros compostos</a></li><li><a href="liberdade.html">Liberdade financeira</a></li><li><a href="roteiro.html">Checagem do estudo</a></li></ul>
       </div>
       <div>
-        <h2>Lastro</h2>
-        <ul><li><a href="empresa.html">A empresa</a></li><li><a href="metodo.html">Nosso método</a></li><li><a href="aprender.html">Aprender</a></li><li><a href="empresa.html#transparencia">Transparência e privacidade</a></li></ul>
+        <h2>Cerne</h2>
+        <ul><li><a href="metodo.html">Como estudar uma empresa</a></li><li><a href="mercado.html">Panorama de mercado</a></li><li><a href="aprender.html">Aprender</a></li><li><a href="empresa.html">A empresa</a></li><li><a href="empresa.html#transparencia">Transparência e privacidade</a></li></ul>
       </div>
     </div>
-    <p class="rodape-legal">Lastro é um projeto educacional. Não é corretora, gestora, consultoria nem analista de valores mobiliários, não tem registro na CVM e não vende produtos financeiros. Nada aqui é recomendação de investimento individualizada nem promessa de retorno. As decisões e os riscos são de quem investe.</p>
+    <p class="rodape-legal">Cerne é um projeto educacional. Não é corretora, gestora, consultoria nem analista de valores mobiliários, não tem registro na CVM e não vende produtos financeiros. Nada aqui é recomendação de investimento individualizada nem promessa de retorno. As decisões e os riscos são de quem investe.</p>
   </div>
 </footer>
 <script src="site/site.js"></script>

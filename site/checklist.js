@@ -1,9 +1,9 @@
-/* Lastro — roteiro fundamentalista para estudar uma empresa.
+/* Cerne — roteiro fundamentalista para estudar uma empresa.
  * Não dá veredito de compra ou venda: mostra onde o seu estudo está firme
  * e onde ainda falta olhar. As respostas ficam só neste navegador. */
 (function () {
   'use strict';
-  var L = window.LASTRO, el = L.el, CHAVE = 'lastro:roteiro:v1';
+  var L = window.CERNE, el = L.el, CHAVE = 'lastro:roteiro:v1';
   var BLOCOS = [
     { id: 'negocio', nome: 'O negócio', perguntas: [
       ['Consigo explicar em duas frases como a empresa ganha dinheiro?', 'Se não dá para explicar, ainda não dá para avaliar.'],
