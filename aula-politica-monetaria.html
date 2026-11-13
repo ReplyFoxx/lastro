@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>O Banco Central e os juros — Aprender — Cerne</title>
+<meta name="description" content="Módulo 2.4 da área de aprendizagem da Cerne: Como o Banco Central usa a Selic para segurar a inflação.">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#172554" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.bcb.gov.br https://olinda.bcb.gov.br; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Cerne">
+<meta property="og:title" content="O Banco Central e os juros — Aprender — Cerne">
+<meta property="og:description" content="Módulo 2.4 da área de aprendizagem da Cerne: Como o Banco Central usa a Selic para segurar a inflação.">
+<meta property="og:image" content="https://replyfoxx.github.io/lastro/site/og-cerne.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="site/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site/site.css">
+<script src="carteira/js/tema.js"></script>
+</head>
+<body data-pagina="aprender">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="dentro">
+    <a class="marca" href="index.html" aria-label="Cerne, página inicial"><svg class="logo" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13.4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="14.4" cy="17.2" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12.9" cy="18.4" r="3.3" class="logo-miolo"/></svg><span class="marca-nome">Cerne</span></a>
+    <nav class="nav" aria-label="Principal"><a href="index.html">Início</a><a href="ferramentas.html">Ferramentas</a><a href="aprender.html" aria-current="page">Aprender</a><a href="metodo.html">Método</a><a href="mercado.html">Mercado</a><a href="empresa.html">A empresa</a></nav>
+    <div class="topo-acoes">
+      <button type="button" class="btn-topo" id="btn-tema" aria-pressed="false" aria-label="Modo escuro"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="btn-topo" id="btn-nav" aria-expanded="false" aria-controls="nav-movel" aria-label="Menu"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <nav class="nav-movel" id="nav-movel" aria-label="Principal, celular" hidden><a href="index.html">Início</a><a href="ferramentas.html">Ferramentas</a><a href="aprender.html" aria-current="page">Aprender</a><a href="metodo.html">Método</a><a href="mercado.html">Mercado</a><a href="empresa.html">A empresa</a></nav>
+</header>
+<main id="conteudo">
+<article class="secao"><div class="dentro">
+  <div class="cabeca">
+    <p class="olho"><a href="aprender.html">Aprender</a> · Trilha 2, Como a economia funciona · Módulo 2.4</p>
+    <h1 class="titulo">O Banco Central e os juros</h1>
+    <p class="lead">Como o Banco Central usa a Selic para segurar a inflação.</p>
+  </div>
+  <dl class="aula-meta">
+    <div><dt>Leitura</dt><dd>9 minutos</dd></div>
+    <div><dt>Antes deste</dt><dd><a href="aula-pib.html">2.3 PIB</a></dd></div>
+    <div><dt>Ao final você consegue</dt><dd>Entender a meta de inflação, o que é o Copom e como uma decisão de juros chega à sua vida.</dd></div>
+  </dl>
+  <div class="aula-grade">
+  <nav class="aula-indice" aria-label="Neste módulo">
+    <p>Neste módulo</p>
+    <ol><li><a href="#frase">Em uma frase</a></li><li><a href="#explicacao">Passo a passo</a></li><li><a href="#palavras">Palavras novas</a></li><li><a href="#exemplos">Exemplos</a></li><li><a href="#erro">Erro comum</a></li><li><a href="#resumo">Resumo</a></li><li><a href="#teste">Mini-teste</a></li><li><a href="#referencias">Referências</a></li></ol>
+  </nav>
+  <div class="texto aula-corpo">
+    <section class="frase" id="frase"><h2>Em uma frase</h2><p>Quando os preços sobem demais, o Banco Central aumenta os juros para esfriar a economia. Quando a economia esfria demais, ele diminui.</p></section>
+    <section class="analogia"><h2>Pense assim</h2><p>Pense no chuveiro. Água quente demais, você gira o registro. Mas a água demora a mudar. Quem mexe demais se queima ou passa frio. O Banco Central gira o registro dos juros, e também espera o efeito.</p></section>
+    <h2 id="explicacao">Passo a passo</h2>
+    <ol class="passos-aula"><li><h3>O nome difícil: política monetária</h3><p>É o conjunto de decisões do banco central de um país sobre o custo do dinheiro. A ferramenta principal é a taxa básica de juros (Mathai, FMI, acesso em 2026). No Brasil, a Selic.</p></li><li><h3>Qual é a missão do Banco Central</h3><p>A lei diz que o objetivo principal do Banco Central é manter os preços estáveis. Ele também deve cuidar da saúde do sistema financeiro, suavizar os altos e baixos da economia e estimular o emprego (Brasil, 2021).</p></li><li><h3>A meta de inflação</h3><p>O Brasil trabalha com uma meta desde 1999. Funciona assim (Banco Central do Brasil, acesso em 2026):</p><ul><li>A meta é de <b>3% em doze meses</b>.</li><li>Há uma folga de 1,5 ponto para cima ou para baixo. Ou seja, entre 1,5% e 4,5% está dentro do combinado.</li><li>Se a inflação ficar fora dessa faixa por seis meses seguidos, o Banco Central precisa explicar o motivo em carta aberta ao Ministro da Fazenda.</li></ul><p>Quem define a meta é o Conselho Monetário Nacional. O Banco Central é quem tem de cumprir.</p></li><li><h3>Quem decide a Selic</h3><p>O <b>Copom</b>, um comitê formado pelo presidente e pelos diretores do Banco Central. Ele se reúne a cada 45 dias e, depois, explica a decisão por escrito (Banco Central do Brasil, acesso em 2026).</p></li><li><h3>Como a decisão chega aos preços</h3><p>O Banco Central lista cinco caminhos (Banco Central do Brasil, acesso em 2026). Com juro mais alto:</p><ol><li>Famílias e empresas <b>consomem e investem menos</b>.</li><li>O <b>dólar</b> tende a ficar mais barato, e o que é importado também.</li><li>O <b>preço dos ativos</b>, como ações e imóveis, tende a cair.</li><li>O <b>crédito</b> fica mais caro.</li><li>As pessoas passam a <b>esperar</b> inflação menor.</li></ol><p>Nada disso é imediato. A decisão leva tempo para fazer efeito, e por isso o Banco Central decide olhando para a frente (Mathai, FMI, acesso em 2026).</p></li><li><h3>Onde ver os números de hoje</h3><p>A Selic, o dólar e a inflação atuais estão no <a href="mercado.html">panorama de mercado</a>, com a data de cada dado.</p></li></ol>
+    <section class="palavras" id="palavras"><h2>Palavras novas</h2><dl><div><dt>Política monetária</dt><dd>As decisões do Banco Central sobre o custo do dinheiro.</dd></div><div><dt>Meta de inflação</dt><dd>O nível de inflação que o país se compromete a buscar: 3% ao ano.</dd></div><div><dt>Copom</dt><dd>O comitê do Banco Central que decide a Selic.</dd></div><div><dt>CMN</dt><dd>Conselho Monetário Nacional. Define a meta de inflação.</dd></div></dl></section>
+    <h2 id="exemplos">Exemplos com a conta feita</h2>
+    <div class="exemplos"><section class="exemplo"><h3>Uma alta de juros, do começo ao fim</h3><p>A inflação está acima da meta. O Copom sobe a Selic. A parcela do carro financiado fica mais cara, e muita gente adia a compra. As lojas vendem menos e param de reajustar. Meses depois, a inflação cede.</p><p>O preço do remédio: nesse meio-tempo a economia anda mais devagar.</p></section><section class="exemplo"><h3>O efeito nos investimentos</h3><p>Juro mais alto aumenta o rendimento das aplicações que acompanham a Selic. Ao mesmo tempo, atrapalha empresas com muita dívida e derruba o preço de títulos comprados com taxa fixa menor.</p><p>A mesma decisão ajuda uma parte da carteira e atrapalha outra. A <a href="mercado.html">leitura por setor</a> mostra isso.</p></section></div>
+    <section class="erro-comum" id="erro"><h2>Erro comum</h2><p>Achar que o Banco Central controla os preços diretamente. Ele só mexe nos juros. Os preços respondem depois, e nem sempre na medida esperada.</p></section>
+    <section class="resumo" id="resumo"><h2>Resumo</h2><ul><li>A missão principal do Banco Central é manter os preços estáveis.</li><li>A meta é de 3% em doze meses, com folga de 1,5 ponto.</li><li>O Copom decide a Selic a cada 45 dias.</li><li>Os juros agem com atraso, por consumo, dólar, ativos, crédito e expectativas.</li></ul></section>
+    <section class="teste" id="teste" data-aula="politica-monetaria">
+      <h2>Mini-teste</h2>
+      <p>Três perguntas para fixar. A resposta aparece assim que você escolhe, e você pode tentar de novo.</p>
+      <fieldset class="questao" data-certa="1">
+        <legend>1. Quem define a meta de inflação?</legend>
+        <label><input type="radio" name="q0" value="0"><span>O Copom.</span></label><label><input type="radio" name="q0" value="1"><span>O Conselho Monetário Nacional.</span></label><label><input type="radio" name="q0" value="2"><span>O IBGE.</span></label>
+        <p class="retorno" hidden><b></b>O CMN define a meta. O Banco Central usa a Selic para alcançá-la.</p>
+      </fieldset>
+      <fieldset class="questao" data-certa="0">
+        <legend>2. A inflação está acima da meta. O que se espera do Copom?</legend>
+        <label><input type="radio" name="q1" value="0"><span>Subir a Selic.</span></label><label><input type="radio" name="q1" value="1"><span>Baixar a Selic.</span></label><label><input type="radio" name="q1" value="2"><span>Mudar o cálculo do IPCA.</span></label>
+        <p class="retorno" hidden><b></b>Juro mais alto esfria o consumo e, com o tempo, segura os preços.</p>
+      </fieldset>
+      <fieldset class="questao" data-certa="2">
+        <legend>3. Uma mudança na Selic afeta os preços:</legend>
+        <label><input type="radio" name="q2" value="0"><span>No mesmo dia.</span></label><label><input type="radio" name="q2" value="1"><span>Só se o dólar não mudar.</span></label><label><input type="radio" name="q2" value="2"><span>Com atraso, por vários caminhos.</span></label>
+        <p class="retorno" hidden><b></b>Consumo, dólar, ativos, crédito e expectativas. Leva tempo.</p>
+      </fieldset>
+      <p class="teste-placar" role="status"></p>
+    </section>
+    <section class="referencias" id="referencias"><h2>Referências</h2><p>Confira você mesmo. As fontes abaixo sustentam os dados deste módulo.</p><ol><li>BRASIL. Lei Complementar nº 179, de 24 de fevereiro de 2021. Define os objetivos do Banco Central do Brasil e dispõe sobre sua autonomia. Disponível em: <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp179.htm" rel="noopener noreferrer" target="_blank">planalto.gov.br</a>.</li><li>BANCO CENTRAL DO BRASIL. Metas para a inflação. Acesso em nov. 2026. Disponível em: <a href="https://www.bcb.gov.br/controleinflacao/metainflacao" rel="noopener noreferrer" target="_blank">bcb.gov.br</a>.</li><li>BANCO CENTRAL DO BRASIL. Comitê de Política Monetária (Copom). Acesso em nov. 2026. Disponível em: <a href="https://www.bcb.gov.br/controleinflacao/copom" rel="noopener noreferrer" target="_blank">bcb.gov.br</a>.</li><li>BANCO CENTRAL DO BRASIL. Mecanismos de transmissão da política monetária. Acesso em nov. 2026. Disponível em: <a href="https://www.bcb.gov.br/controleinflacao/transmissaopoliticamonetaria" rel="noopener noreferrer" target="_blank">bcb.gov.br</a>.</li><li>MATHAI, Koshy. Monetary Policy: Stabilizing Prices and Output. Finance &amp; Development, série Back to Basics. Fundo Monetário Internacional. Acesso em nov. 2026. Disponível em: <a href="https://www.imf.org/en/Publications/fandd/issues/Series/Back-to-Basics/Monetary-Policy" rel="noopener noreferrer" target="_blank">imf.org</a>.</li></ol></section>
+    <nav class="aula-passos" aria-label="Módulos vizinhos">
+      <a href="aula-pib.html"><span>Anterior · 2.3</span><b>PIB</b></a>
+      <a href="aula-juros-compostos.html"><span>Próximo · 3.1</span><b>Juros compostos, com a calculadora</b></a>
+    </nav>
+  </div>
+  </div>
+</div></article>
+</main>
+<aside class="decida" aria-label="Orientação ao leitor"><div class="dentro">
+  <p class="decida-titulo">Estude. Compare.<br><em>Decida por você.</em></p>
+  <p class="decida-texto">A Cerne explica e oferece ferramentas. Não diz o que comprar nem o que vender. Leia as fontes, forme a sua própria opinião e tome as suas decisões. Elas, e a responsabilidade por elas, são suas.</p>
+</div></aside>
+<footer class="rodape">
+  <div class="dentro">
+    <div class="rodape-grade">
+      <div>
+        <p class="rodape-marca"><svg class="logo" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13.4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="14.4" cy="17.2" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12.9" cy="18.4" r="3.3" class="logo-miolo"/></svg><span>Cerne</span></p>
+        <p>Valor real antes do preço. Educação financeira de base fundamentalista, para quem busca liberdade e tranquilidade com o próprio dinheiro.</p>
+      </div>
+      <div>
+        <h2>Ferramentas</h2>
+        <ul><li><a href="carteira/">Monte sua carteira</a></li><li><a href="juros.html">Juros compostos</a></li><li><a href="liberdade.html">Liberdade financeira</a></li><li><a href="roteiro.html">Checagem do estudo</a></li></ul>
+      </div>
+      <div>
+        <h2>Cerne</h2>
+        <ul><li><a href="metodo.html">Como estudar uma empresa</a></li><li><a href="mercado.html">Panorama de mercado</a></li><li><a href="aprender.html">Área de aprendizagem</a></li><li><a href="empresa.html">A empresa</a></li><li><a href="empresa.html#transparencia">Transparência e privacidade</a></li></ul>
+      </div>
+    </div>
+    <p class="rodape-legal">Cerne é um projeto educacional. Não é corretora, gestora, consultoria nem analista de valores mobiliários, não tem registro na CVM e não vende produtos financeiros. Nada aqui é recomendação de investimento individualizada nem promessa de retorno. As decisões e os riscos são de quem investe.</p>
+  </div>
+</footer>
+<script src="site/site.js"></script>
+<script src="site/quiz.js"></script>
+</body>
+</html>

@@ -3,11 +3,11 @@
  * As consultas ao Banco Central NÃO passam por aqui: o próprio app guarda a
  * última cópia dos dados (com a data) no armazenamento do navegador.
  * Ao publicar uma versão nova, mude o número abaixo. */
-const VERSAO = 'msc-v1.2.1';
+const VERSAO = 'msc-v1.4.0';
 const ARQUIVOS = [
   './', 'index.html', 'css/style.css', 'manifest.webmanifest',
   'js/tema.js', 'js/config.js', 'js/engine.js', 'js/textos.js', 'js/macro.js', 'js/share.js',
-  'js/charts.js', 'js/ui.js', 'js/ativos.js', 'js/opcoes.js', 'js/resultado.js', 'js/app.js', 'vendor/qrcode.js',
+  'js/charts.js', 'js/ui.js', 'js/ativos.js', 'js/opcoes.js', 'js/resultado.js', 'js/app.js', 'vendor/qrcode.js', '../site/fontes/bricolage-grotesque-latin.woff2',
   'icons/favicon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'
 ];
 

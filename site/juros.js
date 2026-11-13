@@ -174,5 +174,18 @@
   Object.keys(campos).forEach(function (k) { campos[k].addEventListener('input', atualizar); campos[k].addEventListener('change', atualizar); });
   taxaUn.addEventListener('change', atualizar); prazoUn.addEventListener('change', atualizar);
   $('form-juros').addEventListener('submit', function (ev) { ev.preventDefault(); });
+
+  /* Exemplo vindo da área de aprendizagem: juros.html?inicial=1000&aporte=300&taxa=8&periodo=ano&prazo=15&unidade=anos
+   * Só entram números e as opções conhecidas; qualquer outra coisa é ignorada. */
+  (function () {
+    var q;
+    try { q = new URLSearchParams(location.search); } catch (e) { return; }
+    ['inicial', 'aporte', 'taxa', 'prazo'].forEach(function (k) {
+      var v = q.get(k);
+      if (v !== null && /^[0-9]{1,12}([.,][0-9]{1,4})?$/.test(v)) campos[k].value = k === 'taxa' || k === 'prazo' ? v.replace('.', ',') : L.num(Number(v.replace(',', '.')), 0);
+    });
+    if (q.get('periodo') === 'ano' || q.get('periodo') === 'mes') taxaUn.value = q.get('periodo');
+    if (q.get('unidade') === 'anos' || q.get('unidade') === 'meses') prazoUn.value = q.get('unidade');
+  })();
   atualizar();
 })();

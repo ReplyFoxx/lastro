@@ -5,37 +5,43 @@
  * ========================================================================== */
 
 /* ---------------------------------------------------------------- tokens */
+@font-face { font-family: "Bricolage Grotesque"; src: url("../../site/fontes/bricolage-grotesque-latin.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
 :root {
-  --bg: #F4F0E6; --surface: #FBF9F3; --surface-2: #EDE7D8; --ink: #1B2623; --ink-2: #4A5651;
-  --line: #D6CEBA; --line-forte: #777D6B;
-  --primary: #1F5D50; --primary-ink: #FFFFFF; --primary-suave: #DCE9E2;
-  --alerta: #9A3F17; --alerta-fundo: #F8E6D8; --info-fundo: #E6EDE6;
-  --sombra: 0 1px 2px rgba(27, 38, 35, .06), 0 8px 24px rgba(27, 38, 35, .06);
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --raio: 16px; --raio-p: 10px;
+  --bg: #FFFFFF; --surface: #F4F6FA; --surface-2: #E8ECF3; --ink: #172554; --ink-2: #263B67;
+  --line: #D6DBE6; --line-forte: #7C89A6;
+  --primary: #172554; --primary-ink: #FFFFFF; --primary-suave: #FFE9DD;
+  --acento: #FFB38A; --acento-ink: #172554; --menta: #8EDBC0; --menta-suave: #DDF4EC;
+  --azul: #172554; --numeral: #263B67; --miolo: #FFB38A;
+  --alerta: #9B2C1A; --alerta-fundo: #FDECE6; --ocre: var(--acento); --info-fundo: #F4F6FA;
+  --sombra: 0 1px 2px rgba(23, 37, 84, .06), 0 8px 24px rgba(23, 37, 84, .06);
+  --serif: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sans: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --raio: 6px; --raio-p: 4px;
   color-scheme: light;
 }
 :root[data-tema="escuro"] {
-  --bg: #111614; --surface: #19201D; --surface-2: #232C28; --ink: #ECE7DA; --ink-2: #AEB8B1;
-  --line: #34413B; --line-forte: #6F7D75;
-  --primary: #84CFB8; --primary-ink: #0E1513; --primary-suave: #223A33;
-  --alerta: #F0A476; --alerta-fundo: #3A261B; --info-fundo: #1F2B26;
+  --bg: #172554; --surface: #263B67; --surface-2: #31487A; --ink: #F5F7FC; --ink-2: #C5CDE0;
+  --line: #3A4F82; --line-forte: #8494BC;
+  --primary: #8EDBC0; --primary-ink: #172554; --primary-suave: #2F4A78;
+  --acento: #FFB38A; --acento-ink: #172554; --menta: #8EDBC0; --menta-suave: #2B5563;
+  --azul: #8EDBC0; --numeral: #8EDBC0; --miolo: #FFB38A;
+  --alerta: #FFC9B0; --alerta-fundo: #4A3550; --ocre: var(--acento); --info-fundo: #263B67;
   --sombra: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-tema="claro"]) {
-    --bg: #111614; --surface: #19201D; --surface-2: #232C28; --ink: #ECE7DA; --ink-2: #AEB8B1;
-    --line: #34413B; --line-forte: #6F7D75;
-    --primary: #84CFB8; --primary-ink: #0E1513; --primary-suave: #223A33;
-    --alerta: #F0A476; --alerta-fundo: #3A261B; --info-fundo: #1F2B26;
-    --sombra: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  --bg: #172554; --surface: #263B67; --surface-2: #31487A; --ink: #F5F7FC; --ink-2: #C5CDE0;
+  --line: #3A4F82; --line-forte: #8494BC;
+  --primary: #8EDBC0; --primary-ink: #172554; --primary-suave: #2F4A78;
+  --acento: #FFB38A; --acento-ink: #172554; --menta: #8EDBC0; --menta-suave: #2B5563;
+  --azul: #8EDBC0; --numeral: #8EDBC0; --miolo: #FFB38A;
+  --alerta: #FFC9B0; --alerta-fundo: #4A3550; --ocre: var(--acento); --info-fundo: #263B67;
+  --sombra: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
     color-scheme: dark;
   }
 }
 
-/* ------------------------------------------------------------------ base */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 76px; }
 body {
@@ -382,8 +388,8 @@ body.apresentacao .tela-larga { max-width: 1240px; }
 .so-impressao { display: none; }
 @media print {
   :root, :root[data-tema="escuro"], :root:not([data-tema="claro"]) {
-    --bg: #fff; --surface: #fff; --surface-2: #F1EEE6; --ink: #111; --ink-2: #444; --line: #CCC; --line-forte: #888;
-    --primary: #1F5D50; --primary-ink: #fff; --primary-suave: #E6EFEA; --alerta: #9A3F17; --alerta-fundo: #F8E6D8; --info-fundo: #EDF2ED; --sombra: none;
+    --bg: #fff; --surface: #fff; --surface-2: #F1F1F0; --ink: #111; --ink-2: #444; --line: #CCC; --line-forte: #888;
+    --primary: #172554; --primary-ink: #fff; --primary-suave: #FFE9DD; --alerta: #9A3F17; --alerta-fundo: #F8E6D8; --info-fundo: #F5F5F4; --sombra: none; --acento: #FFB38A; --acento-ink: #172554; --azul: #172554; --numeral: #444;
   }
   @page { margin: 14mm; }
   body { font-size: 10.5pt; display: block; }
@@ -403,3 +409,27 @@ body.apresentacao .tela-larga { max-width: 1240px; }
 }
 
 a.link { display: inline-flex; align-items: center; }
+
+/* ==========================================================================
+ * Identidade 2 (nov/2026): mesma paleta da plataforma Cerne.
+ * --primary serve para texto; --acento é o destaque (amarelo no claro, azul no escuro).
+ * ========================================================================== */
+body { font-optical-sizing: auto; }
+h1, h2, h3 { font-weight: 700; letter-spacing: -.02em; }
+:focus-visible, .entrada:focus-within, .opcao:has(input:focus-visible) { outline-color: var(--azul); }
+.btn { border-radius: 8px; font-weight: 700; }
+.btn-primario, .chip-forte, .alternar button[aria-pressed="true"] { background: var(--acento); color: var(--acento-ink); border-color: var(--acento); }
+.btn-primario:hover { filter: none; background: var(--ink); color: var(--bg); }
+.regua-trilho::after, .estresse-resta { background: var(--acento); }
+.med-seg { fill: var(--acento); }
+.leque-faixa { fill: var(--acento); fill-opacity: .35; }
+.aviso-icone { background: var(--acento); color: var(--acento-ink); }
+.veredito, .faixa-leitura { border-color: var(--acento); }
+.marca-nome { font-weight: 800; letter-spacing: -.02em; }
+.marca-icone { color: var(--azul); }
+.marca-icone .miolo { fill: var(--miolo); }
+.cartao { box-shadow: none; }
+
+/* Rodada 3 (nov/2026): paleta azul-marinho, pêssego e menta, igual à da plataforma. */
+.regua-trilho::after, .estresse-resta, .med-seg { background: var(--menta); fill: var(--menta); }
+.soma-atual.ok { background: var(--menta-suave); }

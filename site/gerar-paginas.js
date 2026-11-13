@@ -9,8 +9,9 @@ const MARCA = 'Cerne';
 const LEMA = 'Valor real antes do preço';
 const URL_SITE = 'https://replyfoxx.github.io/lastro';
 const EDICAO = '12/11/2026';
+const { TRILHAS, MODULOS, REFS } = require('./aulas.js');
 
-const NAV = [['index.html', 'Início', 'inicio'], ['ferramentas.html', 'Ferramentas', 'ferramentas'], ['metodo.html', 'Método', 'metodo'], ['mercado.html', 'Mercado', 'mercado'], ['aprender.html', 'Aprender', 'aprender'], ['empresa.html', 'A empresa', 'empresa']];
+const NAV = [['index.html', 'Início', 'inicio'], ['ferramentas.html', 'Ferramentas', 'ferramentas'], ['aprender.html', 'Aprender', 'aprender'], ['metodo.html', 'Método', 'metodo'], ['mercado.html', 'Mercado', 'mercado'], ['empresa.html', 'A empresa', 'empresa']];
 
 /* Marca: corte de um tronco. Os anéis são os anos; o miolo, o cerne, é o que dura. */
 const aneis = (t) => `<svg class="logo" viewBox="0 0 32 32" width="${t}" height="${t}" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13.4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="14.4" cy="17.2" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12.9" cy="18.4" r="3.3" class="logo-miolo"/></svg>`;
@@ -25,8 +26,8 @@ function pagina(o) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${o.titulo}</title>
 <meta name="description" content="${o.descricao}">
-<meta name="theme-color" content="#F4F0E6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111614" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#172554" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.bcb.gov.br https://olinda.bcb.gov.br; object-src 'none'; base-uri 'self'; form-action 'none'">
@@ -57,6 +58,10 @@ function pagina(o) {
 <main id="conteudo">
 ${o.corpo}
 </main>
+<aside class="decida" aria-label="Orientação ao leitor"><div class="dentro">
+  <p class="decida-titulo">Estude. Compare.<br><em>Decida por você.</em></p>
+  <p class="decida-texto">A ${MARCA} explica e oferece ferramentas. Não diz o que comprar nem o que vender. Leia as fontes, forme a sua própria opinião e tome as suas decisões. Elas, e a responsabilidade por elas, são suas.</p>
+</div></aside>
 <footer class="rodape">
   <div class="dentro">
     <div class="rodape-grade">
@@ -70,7 +75,7 @@ ${o.corpo}
       </div>
       <div>
         <h2>${MARCA}</h2>
-        <ul><li><a href="metodo.html">Como estudar uma empresa</a></li><li><a href="mercado.html">Panorama de mercado</a></li><li><a href="aprender.html">Aprender</a></li><li><a href="empresa.html">A empresa</a></li><li><a href="empresa.html#transparencia">Transparência e privacidade</a></li></ul>
+        <ul><li><a href="metodo.html">Como estudar uma empresa</a></li><li><a href="mercado.html">Panorama de mercado</a></li><li><a href="aprender.html">Área de aprendizagem</a></li><li><a href="empresa.html">A empresa</a></li><li><a href="empresa.html#transparencia">Transparência e privacidade</a></li></ul>
       </div>
     </div>
     <p class="rodape-legal">${MARCA} é um projeto educacional. Não é corretora, gestora, consultoria nem analista de valores mobiliários, não tem registro na CVM e não vende produtos financeiros. Nada aqui é recomendação de investimento individualizada nem promessa de retorno. As decisões e os riscos são de quem investe.</p>
@@ -109,7 +114,76 @@ const FERRAMENTAS = `<ol class="indice">${FERR.map(([h, n, d, a]) => `
   <li><a href="${h}"><span class="indice-nome">${n}</span><span class="indice-desc">${d}</span><span class="indice-ir">${a} <span aria-hidden="true">→</span></span></a></li>`).join('')}
 </ol>`;
 
-const AVISO = `<p class="aviso">Conteúdo educacional. Não é recomendação de investimento individualizada e não substitui um profissional habilitado. Não há garantia de retorno.</p>`;
+const AVISO = `<p class="aviso"><b>Conteúdo educacional</b>Não é recomendação de investimento individualizada e não substitui um profissional habilitado. Não há garantia de retorno. A decisão é de quem investe.</p>`;
+const AVISO_MERCADO = `<p class="aviso"><b>Leia antes</b>As informações deste painel têm caráter informativo. Cada dado traz a data e a fonte para que você possa conferir. Avalie o cenário com os seus próprios critérios e tome as suas próprias decisões.</p>`;
+
+/* --------------------------------------------------------------- aprender -- */
+MODULOS.forEach((m) => { const ordem = MODULOS.filter((x) => x.trilha === m.trilha).indexOf(m) + 1; m.num = `${m.trilha}.${ordem}`; m.arquivo = `aula-${m.slug}.html`; });
+const trilhasHtml = TRILHAS.map((t, i) => `
+  <li class="trilha-bloco" id="trilha-${i + 1}">
+    <div class="trilha-cab">
+      <p class="trilha-rotulo"><b>${i + 1}</b>Trilha</p>
+      <h2>${t.nome}</h2>
+      <p>${t.resumo}</p>
+      <p class="requisito"><b>Antes desta:</b> ${t.requisito}</p>
+    </div>
+    <ol class="modulos">${MODULOS.filter((m) => m.trilha === i + 1).map((m) => `
+      <li><a href="${m.arquivo}" data-aula="${m.slug}"><span class="mod-num">${m.num}</span><span class="mod-nome">${m.nome}</span><span class="mod-estado">${m.tempo} min</span><span class="mod-desc">${m.chamada}</span></a></li>`).join('')}
+    </ol>
+  </li>`).join('');
+
+function paginaAula(m, i) {
+  const ant = MODULOS[i - 1], prox = MODULOS[i + 1], t = TRILHAS[m.trilha - 1];
+  const refs = m.refs.map((k) => { const [txt, url] = REFS[k]; return `<li>${txt}${url ? ` Disponível em: <a href="${url}" rel="noopener noreferrer" target="_blank">${url.replace(/^https?:\/\/(www\.)?/, '').split('/')[0]}</a>.` : ''}</li>`; }).join('');
+  const teste = m.teste.map((q, n) => `
+      <fieldset class="questao" data-certa="${q.c}">
+        <legend>${n + 1}. ${q.p}</legend>
+        ${q.o.map((o, k) => `<label><input type="radio" name="q${n}" value="${k}"><span>${o}</span></label>`).join('')}
+        <p class="retorno" hidden><b></b>${q.e}</p>
+      </fieldset>`).join('');
+  return { arquivo: m.arquivo, id: 'aprender', titulo: `${m.nome} — Aprender — ${MARCA}`,
+    descricao: `Módulo ${m.num} da área de aprendizagem da ${MARCA}: ${m.chamada}`,
+    scripts: ['site/quiz.js'],
+    corpo: `<article class="secao"><div class="dentro">
+  <div class="cabeca">
+    <p class="olho"><a href="aprender.html">Aprender</a> · Trilha ${m.trilha}, ${t.nome} · Módulo ${m.num}</p>
+    <h1 class="titulo">${m.nome}</h1>
+    <p class="lead">${m.chamada}</p>
+  </div>
+  <dl class="aula-meta">
+    <div><dt>Leitura</dt><dd>${m.tempo} minutos</dd></div>
+    <div><dt>Antes deste</dt><dd>${ant ? `<a href="${ant.arquivo}">${ant.num} ${ant.nome}</a>` : 'Nenhum. É o primeiro módulo.'}</dd></div>
+    <div><dt>Ao final você consegue</dt><dd>${m.objetivo}</dd></div>
+  </dl>
+  <div class="aula-grade">
+  <nav class="aula-indice" aria-label="Neste módulo">
+    <p>Neste módulo</p>
+    <ol><li><a href="#frase">Em uma frase</a></li><li><a href="#explicacao">Passo a passo</a></li><li><a href="#palavras">Palavras novas</a></li><li><a href="#exemplos">Exemplos</a></li><li><a href="#erro">Erro comum</a></li><li><a href="#resumo">Resumo</a></li><li><a href="#teste">Mini-teste</a></li><li><a href="#referencias">Referências</a></li></ol>
+  </nav>
+  <div class="texto aula-corpo">
+    <section class="frase" id="frase"><h2>Em uma frase</h2><p>${m.frase}</p></section>
+    <section class="analogia"><h2>Pense assim</h2><p>${m.analogia}</p></section>
+    <h2 id="explicacao">Passo a passo</h2>
+    <ol class="passos-aula">${m.passos.map(([tit, html]) => `<li><h3>${tit}</h3>${html}</li>`).join('')}</ol>
+    <section class="palavras" id="palavras"><h2>Palavras novas</h2><dl>${m.palavras.map(([termo, def]) => `<div><dt>${termo}</dt><dd>${def}</dd></div>`).join('')}</dl></section>
+    <h2 id="exemplos">Exemplos com a conta feita</h2>
+    <div class="exemplos">${m.exemplos.map(([tit, html]) => `<section class="exemplo"><h3>${tit}</h3>${html}</section>`).join('')}</div>
+    <section class="erro-comum" id="erro"><h2>Erro comum</h2><p>${m.erro}</p></section>
+    <section class="resumo" id="resumo"><h2>Resumo</h2><ul>${m.resumo.map((r) => `<li>${r}</li>`).join('')}</ul></section>
+    <section class="teste" id="teste" data-aula="${m.slug}">
+      <h2>Mini-teste</h2>
+      <p>Três perguntas para fixar. A resposta aparece assim que você escolhe, e você pode tentar de novo.</p>${teste}
+      <p class="teste-placar" role="status"></p>
+    </section>
+    <section class="referencias" id="referencias"><h2>Referências</h2><p>Confira você mesmo. As fontes abaixo sustentam os dados deste módulo.</p><ol>${refs}</ol></section>
+    <nav class="aula-passos" aria-label="Módulos vizinhos">
+      ${ant ? `<a href="${ant.arquivo}"><span>Anterior · ${ant.num}</span><b>${ant.nome}</b></a>` : `<a href="aprender.html"><span>Voltar</span><b>Todas as trilhas</b></a>`}
+      ${prox ? `<a href="${prox.arquivo}"><span>Próximo · ${prox.num}</span><b>${prox.nome}</b></a>` : `<a href="metodo.html"><span>Depois das trilhas</span><b>Como estudar uma empresa</b></a>`}
+    </nav>
+  </div>
+  </div>
+</div></article>` };
+}
 
 /* ---------------------------------------------------------------- método -- */
 const ETAPAS = [
@@ -145,7 +219,7 @@ const ETAPAS = [
     entrega: 'Uma faixa de valor por ação, do pessimista ao otimista, com as premissas escritas ao lado de cada número.' },
   { nome: 'Compare com o preço e registre', tempo: '1 h',
     fazer: 'Só agora olhe a cotação. Defina a folga que você exige entre o valor estimado e o preço, maior quanto mais incerto o negócio.',
-    comecar: 'Pela pergunta inversa: o que precisa ser verdade para o preço atual fazer sentido? Compare com os seus cenários.',
+    comecar: 'Pelo raciocínio inverso: liste o que precisa ser verdade para o preço atual fazer sentido e compare com os seus cenários.',
     fontes: ['Cotação e número de ações, na B3', 'A sua faixa de valor da etapa 6'],
     entrega: 'Uma página com a tese em cinco linhas, o preço-limite que você aceita e três fatos que fariam você mudar de ideia.' },
   { nome: 'Acompanhe a tese', tempo: '1 h por trimestre',
@@ -213,7 +287,8 @@ const paginas = [
     <p class="olho">Educação financeira fundamentalista</p>
     <h1 class="manchete">Olhe o cerne.<br><em>O preço é a casca.</em></h1>
     <p class="lead">A ${MARCA} ensina a investir pelo que uma empresa é e produz, para que mais gente chegue à liberdade financeira com tranquilidade.</p>
-    <div class="heroi-acoes"><a class="btn btn-primario" href="carteira/">Montar minha carteira</a><a class="btn btn-secundario" href="metodo.html">Como estudar uma empresa</a></div>
+    <p class="voce-decide">Aqui ninguém diz o que você deve comprar. Você aprende a estudar e decide por conta própria.</p>
+    <div class="heroi-acoes"><a class="btn btn-primario" href="aprender.html">Começar a aprender</a><a class="btn btn-secundario" href="carteira/">Montar minha carteira</a></div>
   </div>
   ${TESE}
 </div></section>
@@ -223,11 +298,22 @@ const paginas = [
   ${FERRAMENTAS}
 </div></section>
 
+<section class="secao"><div class="dentro aprender-chamada">
+  <div>
+    <p class="olho">Área de aprendizagem</p>
+    <h2 class="titulo-2">${TRILHAS.length} trilhas, ${MODULOS.length} módulos, do zero</h2>
+    <p class="lead">Economia, mercado financeiro, a cabeça do investidor, como investir sem perder o sono e planejamento. Linguagem do dia a dia, exemplos com a conta feita e a fonte de cada dado.</p>
+    <p style="margin-top:1.4rem"><a class="btn btn-primario" href="aprender.html">Ver as trilhas</a></p>
+  </div>
+  <ol class="trilha">${TRILHAS.map((tr, i) => `<li><a href="aprender.html#trilha-${i + 1}"><span>${i + 1}</span>${tr.nome}</a></li>`).join('')}</ol>
+</div></section>
+
 <section class="secao"><div class="dentro">
-  <div class="cabeca"><p class="olho">No que acreditamos</p><h2 class="titulo-2">Três ideias</h2></div>
-  <div class="grade grade-3">
+  <div class="cabeca"><p class="olho">No que acreditamos</p><h2 class="titulo-2">Quatro ideias</h2></div>
+  <div class="grade grade-4">
     <div class="principio"><h3 class="titulo-3">Liberdade é o objetivo</h3><p>Dinheiro é meio. O fim é escolher como usar o próprio tempo, sem depender do próximo salário nem do humor do mercado.</p></div>
     <div class="principio"><h3 class="titulo-3">Valor vem do negócio</h3><p>Uma ação é um pedaço de uma empresa. Ela vale pelo que a empresa vende, por quem a administra e pelo caixa que gera ao longo dos anos.</p></div>
+    <div class="principio"><h3 class="titulo-3">Quem decide é você</h3><p>Nenhum site conhece a sua vida. O nosso papel é explicar. O seu é estudar, comparar fontes e escolher.</p></div>
     <div class="principio"><h3 class="titulo-3">Indicador é pista</h3><p>Múltiplos ajudam a fazer perguntas. Sozinhos, não dizem por que o número é aquele nem se ele vai durar.</p></div>
   </div>
 </div></section>
@@ -236,7 +322,7 @@ const paginas = [
   <div>
     <p class="olho">Método</p>
     <h2 class="titulo-2">Oito etapas para estudar uma empresa</h2>
-    <p class="lead">Cada etapa diz por onde começar, onde procurar e o que você precisa ter em mãos antes de passar à seguinte. O preço só entra na sétima.</p>
+    <p class="lead">Um método opcional. Cada etapa diz por onde começar, onde pesquisar e o que você terá escrito ao terminar. O preço só entra na sétima.</p>
     <p style="margin-top:1.4rem"><a class="btn btn-secundario" href="metodo.html">Abrir o método</a></p>
   </div>
   <ol class="trilha">${ETAPAS.map((e, i) => `<li><a href="metodo.html#etapa-${i + 1}"><span>${i + 1}</span>${e.nome}</a></li>`).join('')}</ol>
@@ -255,16 +341,21 @@ const paginas = [
 </div></section>` },
 
   { arquivo: 'metodo.html', id: 'metodo', titulo: `Como estudar uma empresa — ${MARCA}`,
-    descricao: `O método da ${MARCA} em oito etapas, na ordem de execução: o que fazer, por onde começar, quais fontes consultar e o que entregar em cada uma.`,
+    descricao: `Método opcional da ${MARCA} para estudar uma empresa, em oito etapas na ordem de execução: o que fazer, por onde começar, quais fontes consultar e o entregável de cada uma.`,
     corpo: `<section class="secao"><div class="dentro">
   <div class="cabeca">
     <p class="olho">Método ${MARCA}</p>
     <h1 class="manchete">Como estudar<br>uma empresa</h1>
-    <p class="lead">Oito etapas, na ordem em que devem ser feitas. Cada uma termina com algo escrito. Sem o entregável, não passe à seguinte.</p>
+    <p class="lead">Um caminho em oito etapas, na ordem de execução, para quem quiser seguir. Cada etapa diz o que fazer, por onde começar, onde pesquisar e o que você terá escrito ao terminar.</p>
+  </div>
+  <div class="orientacao">
+    <div><h2><span class="marca-ponto" aria-hidden="true"></span>É uma opção</h2><p>Ninguém precisa seguir este método. Use inteiro, só algumas etapas, ou como comparação para o seu próprio jeito de estudar.</p></div>
+    <div><h2><span class="marca-ponto" aria-hidden="true"></span>Recomendamos as pesquisas</h2><p>Ler os documentos indicados em cada etapa dá trabalho, e é o que mais aumenta a qualidade da análise. Se for encurtar, encurte o resto.</p></div>
+    <div><h2><span class="marca-ponto" aria-hidden="true"></span>A decisão é sua</h2><p>O método organiza o estudo e não aponta o que comprar. Conheça o tema, forme a sua opinião e tome as suas próprias decisões.</p></div>
   </div>
   <div class="metodo-resumo">
     <p><b>13 horas</b><span>para o primeiro estudo completo</span></p>
-    <p><b>7 documentos</b><span>escritos por você ao fim</span></p>
+    <p><b>8 entregáveis</b><span>um por etapa, escritos por você</span></p>
     <p><b>Etapa 7</b><span>é quando o preço entra</span></p>
   </div>
   <nav class="trilha-nav" aria-label="Etapas do método"><ol class="trilha trilha-linha">${ETAPAS.map((e, i) => `<li><a href="#etapa-${i + 1}"><span>${i + 1}</span>${e.nome}</a></li>`).join('')}</ol></nav>
@@ -286,42 +377,33 @@ const paginas = [
       <tr><th scope="row">Lucro crescendo no ano</th><td>Venda de um ativo, e não da operação</td><td>Etapa 5, fluxo de caixa</td></tr>
     </tbody>
   </table></div>
-  <p class="lead" style="margin-top:2rem">Terminou as oito etapas? Passe o seu estudo pela checagem de vinte pontos.</p>
+  <p class="lead" style="margin-top:2rem">Quem terminar as etapas pode passar o estudo pela checagem de vinte pontos.</p>
   <p style="margin-top:1rem"><a class="btn btn-primario" href="roteiro.html">Conferir meu estudo</a></p>
   <div class="estreito" style="margin-top:2rem">${AVISO}</div>
 </div></section>` },
 
   { arquivo: 'aprender.html', id: 'aprender', titulo: `Aprender — ${MARCA}`,
-    descricao: `Lições curtas da ${MARCA} sobre preço e valor, margem de segurança, juros compostos, reserva de emergência, renda fixa e diversificação.`,
+    descricao: `Área de aprendizagem da ${MARCA}: ${TRILHAS.length} trilhas e ${MODULOS.length} módulos de finanças pessoais e investimentos, do básico ao intermediário, com exemplos, mini-testes e fontes oficiais.`,
+    scripts: ['site/quiz.js'],
     corpo: `<section class="secao"><div class="dentro">
-  <div class="cabeca"><p class="olho">Aprender</p>
-  <h1 class="titulo">Sete lições curtas</h1>
-  <p class="lead">O essencial para investir com calma, em linguagem simples. Cada uma leva dois minutos.</p></div>
-  <div class="estreito" style="margin:0">
-    <details class="aula" open><summary>1. Preço e valor não são a mesma coisa</summary><div>
-      <p>Preço é quanto alguém pagou pela última ação negociada. Valor é quanto a empresa vale pelo que produz e vai produzir. O preço muda a cada segundo; o valor muda devagar, conforme o negócio melhora ou piora.</p>
-      <p>No curto prazo os dois se afastam bastante, para cima e para baixo. Quem só olha o preço compra quando está caro, porque subiu, e vende quando está barato, porque caiu.</p></div></details>
-    <details class="aula"><summary>2. Por que indicadores sozinhos enganam</summary><div>
-      <p>Um indicador é uma fotografia. Uma empresa com lucro alto por ter vendido um prédio parece barata, mas esse lucro não volta no ano seguinte. Uma empresa com retorno alto sobre o patrimônio pode estar apenas muito endividada.</p>
-      <p>Use o indicador para escolher o que estudar, e os relatórios da empresa para entender o motivo do número. O <a href="metodo.html">método</a> mostra onde procurar.</p></div></details>
-    <details class="aula"><summary>3. Margem de segurança</summary><div>
-      <p>Ninguém sabe exatamente quanto uma empresa vale. Toda conta depende de hipóteses sobre o futuro, e hipóteses falham. Margem de segurança é pagar bem menos do que a sua estimativa, para que um erro de cálculo não vire prejuízo.</p>
-      <p>Quanto mais incerto o negócio, maior deve ser a folga. Se não há folga, a decisão mais simples é esperar.</p></div></details>
-    <details class="aula"><summary>4. Juros compostos e o tempo</summary><div>
-      <p>Juros compostos são juros sobre juros: o rendimento de um ano passa a render no ano seguinte. No início o efeito é pequeno e parece que nada acontece. Depois de muitos anos, a maior parte do patrimônio vem do rendimento acumulado, e não do que foi aportado.</p>
-      <p>Por isso começar cedo e não interromper importa mais do que acertar o melhor investimento. Veja o efeito na <a href="juros.html">calculadora de juros compostos</a>.</p></div></details>
-    <details class="aula"><summary>5. Reserva de emergência vem antes</summary><div>
-      <p>Reserva é dinheiro para imprevistos, em aplicação de baixo risco e resgate imediato. A referência usual é de seis meses de despesas, ou doze se a renda for instável.</p>
-      <p>Sem reserva, um imprevisto obriga a vender investimentos na pior hora ou a tomar dívida cara. Dívida cara, aliás, deve ser quitada antes de investir: dificilmente algum investimento rende mais do que os juros do cartão.</p></div></details>
-    <details class="aula"><summary>6. Renda fixa também oscila</summary><div>
-      <p>Renda fixa quer dizer que a regra de rendimento é combinada na compra, e não que o preço fica parado. Um título prefixado ou atrelado à inflação perde valor de mercado quando os juros sobem, e ganha quando caem.</p>
-      <p>Quem leva o título até o vencimento recebe o combinado. Quem vende antes recebe o preço do dia. Por isso o prazo do título deve combinar com o prazo do objetivo.</p></div></details>
-    <details class="aula"><summary>7. Diversificar sem se perder</summary><div>
-      <p>Diversificar é não depender de uma coisa só: uma empresa, um setor, um país, um tipo de investimento. Funciona porque coisas diferentes costumam ir mal em momentos diferentes.</p>
-      <p>Mas ter quarenta ações que ninguém estudou não é diversificar, é desistir de entender. O equilíbrio está em dividir entre classes e, dentro de cada uma, ter o que você consegue acompanhar. A ferramenta <a href="carteira/">Monte sua carteira</a> faz essa divisão por classes.</p></div></details>
+  <div class="cabeca">
+    <p class="olho">Área de aprendizagem</p>
+    <h1 class="manchete">Do primeiro orçamento<br><em>à primeira carteira.</em></h1>
+    <p class="lead">${TRILHAS.length} trilhas e ${MODULOS.length} módulos, na ordem em que devem ser estudados. Não é preciso saber nada antes. Cada módulo começa com a ideia em uma frase e uma comparação do dia a dia, e só depois entra nos detalhes. O objetivo é que você consiga estudar e decidir por conta própria.</p>
   </div>
-  <div class="estreito" style="margin:2rem 0 0">${AVISO}</div>
-</div></section>` },
+  <div class="progresso" id="progresso" data-total="${MODULOS.length}">
+    <p class="progresso-num"><span id="progresso-feitos">0</span><small>de ${MODULOS.length} módulos concluídos</small></p>
+    <div class="trilho" aria-hidden="true"><i id="progresso-barra"></i></div>
+    <p><a class="btn btn-primario" id="progresso-ir" href="${MODULOS[0].arquivo}">Começar pelo módulo 1.1</a></p>
+  </div>
+  <ol class="trilhas">${trilhasHtml}
+  </ol>
+  <div class="orientacao" style="margin-top:1rem">
+    <div><h2><span class="marca-ponto" aria-hidden="true"></span>Como cada módulo funciona</h2><p>A ideia em uma frase, uma comparação do dia a dia, a explicação em passos curtos, as palavras novas, exemplos com a conta feita, o erro mais comum, um resumo e um mini-teste.</p></div>
+    <div><h2><span class="marca-ponto" aria-hidden="true"></span>De onde vêm os dados</h2><p>Banco Central, CVM, B3, Tesouro Nacional, IBGE, FMI, OCDE e artigos acadêmicos revisados por pares. A lista completa fica ao fim de cada módulo.</p></div>
+    <div><h2><span class="marca-ponto" aria-hidden="true"></span>O seu progresso</h2><p>Fica guardado só neste navegador. Não há cadastro e nada é enviado.</p></div>
+  </div>
+  </div></section>` },
 
   { arquivo: 'empresa.html', id: 'empresa', titulo: `A empresa — ${MARCA}`,
     descricao: `Visão, missão e princípios da ${MARCA}: liberdade e tranquilidade financeira por meio de educação fundamentalista, focada no valor real das empresas.`,
@@ -356,6 +438,7 @@ const paginas = [
     <div class="principio"><h3 class="titulo-3">Simplicidade</h3><p>Se não dá para explicar em linguagem simples, não entendemos o bastante.</p></div>
     <div class="principio"><h3 class="titulo-3">Transparência</h3><p>Regras, premissas e fontes ficam abertas, com a data de cada dado.</p></div>
     <div class="principio"><h3 class="titulo-3">Independência</h3><p>Não vendemos produtos nem recebemos comissão de quem vende.</p></div>
+    <div class="principio"><h3 class="titulo-3">Autonomia de quem lê</h3><p>Ensinamos a estudar. A conclusão e a decisão são de cada pessoa.</p></div>
   </div>
 
   <div class="dupla" style="margin-bottom:2rem">
@@ -383,7 +466,7 @@ const paginas = [
     corpo: `<section class="secao"><div class="dentro">
   <div class="cabeca"><p class="olho"><a href="ferramentas.html">Ferramentas</a> · Calculadora</p>
   <h1 class="titulo">Juros compostos</h1>
-  <p class="lead">Juros sobre juros, mês a mês. Mude qualquer campo e o resultado acompanha.</p></div>
+  <p class="lead">Juros sobre juros, mês a mês. Mude qualquer campo e o resultado acompanha. Para entender a fórmula por trás da conta, veja o <a href="aula-juros-compostos.html">módulo 3.1, com exemplo guiado</a>.</p></div>
   <div class="calc-grade">
     <form class="calc-form" id="form-juros" novalidate>
       <div class="campo"><label for="j-inicial">Valor inicial</label><div class="entrada"><span>R$</span><input id="j-inicial" type="text" inputmode="decimal" autocomplete="off" value="10.000" aria-describedby="e-inicial"></div><p class="erro" id="e-inicial" hidden></p></div>
@@ -454,6 +537,7 @@ const paginas = [
     <p class="olho">Panorama de mercado · edição de ${EDICAO}</p>
     <h1 class="manchete">O juro parou de cair.<br><em>O resto ainda se ajusta.</em></h1>
   </div>
+  <div style="margin:0 0 2.4rem">${AVISO_MERCADO}</div>
   <div class="visao">
     <p class="visao-texto">Em 04/11 o Banco Central manteve a Selic em 13,75% ao ano e interrompeu uma sequência de cinco cortes, citando piora do cenário interno e externo. A bolsa vinha da pior semana em seis anos, na última de outubro, com a reavaliação de preços depois das eleições e a dúvida sobre as contas públicas; a semana seguinte foi de estabilidade. A indústria encolheu 0,8% em setembro, quarta queda em cinco meses, enquanto o desemprego ficou em 5,2%, o menor para o período desde 2012.</p>
     <ul class="visao-fontes">
@@ -482,7 +566,7 @@ const paginas = [
 </div></section>
 
 <section class="secao" id="industriais"><div class="dentro">
-  <div class="cabeca"><p class="olho">Setor em foco · pesquisa semanal de ${EDICAO}</p><h2 class="titulo-2">Bens industriais: o trimestre separou quem deve de quem exporta</h2><p class="lead">Resultados do 3º trimestre de 2026 das maiores empresas do setor, divulgados entre 21/10 e 10/11. Os nomes aparecem como origem do dado; não há indicação de compra ou venda.</p></div>
+  <div class="cabeca"><p class="olho">Setor em foco · pesquisa semanal de ${EDICAO}</p><h2 class="titulo-2">Bens industriais: o trimestre separou quem deve de quem exporta</h2><p class="lead">Resultados do 3º trimestre de 2026 das maiores empresas do setor, divulgados entre 21/10 e 10/11. Os nomes das empresas aparecem como origem do dado. Não há indicação de compra ou venda de nenhuma delas.</p></div>
   <div class="foco-grade">
     <figure class="foco-grafico">
       <figcaption><b>Lucro do 3º trimestre de 2026</b> contra o mesmo trimestre de 2025</figcaption>
@@ -502,7 +586,7 @@ const paginas = [
     <p><b>Atividade</b>A produção nacional de carrocerias de ônibus caiu 7,1% no 3º trimestre, segundo a Fabus.</p>
   </div>
   <details class="aula" style="margin-top:1.5rem"><summary>Limites e fontes deste estudo</summary><div>
-    <p>O estudo cobre oito empresas com valor de mercado acima de R$ 4 bilhões. Os números vêm de sites que citam a CVM e da imprensa, e não dos documentos originais. Onde as fontes divergem, usamos o dado da própria empresa. Resultados de ferrovias e de serviços terceirizados do 3º trimestre não foram encontrados.</p>
+    <p>Pesquisa semanal de Bens Industriais da B3, edição de ${EDICAO}, com fontes acessadas nessa data. O estudo cobre oito empresas com valor de mercado acima de R$ 4 bilhões. Os números vêm de sites que citam a CVM e da imprensa, e não dos documentos originais. Onde as fontes divergem, usamos o dado da própria empresa. Resultados de ferrovias e de serviços terceirizados do 3º trimestre não foram encontrados.</p>
     <ul class="fontes">
       ${fonte('WEG, 3º trimestre (Cenário Energia, 21/10/2026)', 'https://cenarioenergia.com.br/2026/10/21/weg-lucra-r-167-bilhao-no-3t26-mas-margem-ebitda-recua/')}
       ${fonte('Embraer, carteira de pedidos (Acionista, 23/10/2026)', 'https://acionista.com.br/embraer-embj3-registra-carteira-de-pedidos-recorde-de-us357-bilhoes-no-3t26/')}
@@ -516,10 +600,11 @@ const paginas = [
       ${fonte('Frasle, projeção de 2026 (brapi, 20/10/2026)', 'https://brapi.dev/news/frasle-corta-previsao-de-receita-de-2026-para-faixa-de-r-5-e2e1fb6f')}
       ${fonte('Lista do setor (Investidor10, 12/11/2026)', 'https://investidor10.com.br/setores/bens-industriais/')}
     </ul></div></details>
-  <div class="estreito" style="margin:2rem 0 0">${AVISO}</div>
+  <div class="estreito" style="margin:2rem 0 0">${AVISO_MERCADO}</div>
 </div></section>` }
 ];
 
+MODULOS.forEach((m, i) => paginas.push(paginaAula(m, i)));
 paginas.forEach((p) => fs.writeFileSync(path.join(RAIZ, p.arquivo), pagina(p)));
-fs.writeFileSync(path.join(__dirname, 'favicon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><style>.f{fill:#F4F0E6}.a{stroke:#1B2623}.m{fill:#B07E1A}@media (prefers-color-scheme:dark){.f{fill:#19201D}.a{stroke:#ECE7DA}.m{fill:#E0B45A}}</style><rect class="f" width="32" height="32" rx="7"/><circle class="a" cx="16" cy="16" r="11.5" fill="none" stroke-width="2.8"/><circle class="a" cx="14.6" cy="17" r="6.3" fill="none" stroke-width="2.8"/><circle class="m" cx="13.6" cy="17.9" r="2.6"/></svg>\n`);
+fs.writeFileSync(path.join(__dirname, 'favicon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><style>.f{fill:#FFFFFF}.a{stroke:#172554}@media (prefers-color-scheme:dark){.f{fill:#172554}.a{stroke:#8EDBC0}}</style><rect class="f" width="32" height="32" rx="7"/><circle class="a" cx="16" cy="16" r="11.5" fill="none" stroke-width="2.8"/><circle class="a" cx="14.6" cy="17" r="6.3" fill="none" stroke-width="2.8"/><circle fill="#FFB38A" cx="13.6" cy="17.9" r="2.6"/></svg>\n`);
 console.log(paginas.length + ' páginas geradas.');

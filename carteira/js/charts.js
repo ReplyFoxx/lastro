@@ -265,15 +265,15 @@
    * Monta um SVG independente (sem dados pessoais: só classes e percentuais)
    * e converte em PNG 1080 x 1080 no próprio navegador. */
   function pngAlocacao(itens, nomePerfil, legenda) {
-    var L = 1080, fundo = '#F4F0E6', tinta = '#1B2623', tinta2 = '#4A5651';
-    var serif = 'Georgia, "Times New Roman", serif', sans = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
+    var L = 1080, fundo = '#FFFFFF', tinta = '#172554', tinta2 = '#263B67';
+    var serif = '"Bricolage Grotesque", system-ui, "Segoe UI", Arial, sans-serif', sans = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif';
     var r = rosca(itens, { prefixo: 'px-', corFundo: fundo, estatico: true });
     r.removeAttribute('class'); r.removeAttribute('role'); r.removeAttribute('aria-label');
     r.setAttribute('x', 70); r.setAttribute('y', 300); r.setAttribute('width', 460); r.setAttribute('height', 460);
     var filhos = [
       criarDefs('px-'),
       s('rect', { width: L, height: L, fill: fundo }),
-      s('rect', { x: 70, y: 84, width: 72, height: 6, fill: '#1F5D50' }),
+      s('rect', { x: 70, y: 84, width: 72, height: 6, fill: '#FFB38A' }),
       s('text', { x: 70, y: 170, 'font-family': serif, 'font-size': 68, fill: tinta }, ['Minha carteira']),
       s('text', { x: 70, y: 226, 'font-family': sans, 'font-size': 32, fill: tinta2 }, [legenda]),
       r
@@ -288,7 +288,7 @@
     });
     filhos.push(s('text', { x: 300, y: 522, 'text-anchor': 'middle', 'font-family': sans, 'font-size': 22, fill: tinta2 }, ['perfil']));
     filhos.push(s('text', { x: 300, y: 560, 'text-anchor': 'middle', 'font-family': serif, 'font-size': nomePerfil.length > 12 ? 26 : 34, fill: tinta }, [nomePerfil]));
-    filhos.push(s('line', { x1: 70, x2: L - 70, y1: 930, y2: 930, stroke: '#D9D2BF', 'stroke-width': 2 }));
+    filhos.push(s('line', { x1: 70, x2: L - 70, y1: 930, y2: 930, stroke: '#D6DBE6', 'stroke-width': 2 }));
     filhos.push(s('text', { x: 70, y: 980, 'font-family': serif, 'font-size': 30, fill: tinta }, ['Monte sua carteira']));
     filhos.push(s('text', { x: 70, y: 1018, 'font-family': sans, 'font-size': 21, fill: tinta2 }, ['Conteúdo educacional. Não é recomendação de investimento.']));
     var svg = s('svg', { xmlns: NS, width: L, height: L, viewBox: '0 0 ' + L + ' ' + L }, filhos);

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Juros compostos, com a calculadora — Aprender — Cerne</title>
+<meta name="description" content="Módulo 3.1 da área de aprendizagem da Cerne: A conta mais importante dos investimentos, feita devagar.">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#172554" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.bcb.gov.br https://olinda.bcb.gov.br; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Cerne">
+<meta property="og:title" content="Juros compostos, com a calculadora — Aprender — Cerne">
+<meta property="og:description" content="Módulo 3.1 da área de aprendizagem da Cerne: A conta mais importante dos investimentos, feita devagar.">
+<meta property="og:image" content="https://replyfoxx.github.io/lastro/site/og-cerne.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="site/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site/site.css">
+<script src="carteira/js/tema.js"></script>
+</head>
+<body data-pagina="aprender">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="dentro">
+    <a class="marca" href="index.html" aria-label="Cerne, página inicial"><svg class="logo" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13.4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="14.4" cy="17.2" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12.9" cy="18.4" r="3.3" class="logo-miolo"/></svg><span class="marca-nome">Cerne</span></a>
+    <nav class="nav" aria-label="Principal"><a href="index.html">Início</a><a href="ferramentas.html">Ferramentas</a><a href="aprender.html" aria-current="page">Aprender</a><a href="metodo.html">Método</a><a href="mercado.html">Mercado</a><a href="empresa.html">A empresa</a></nav>
+    <div class="topo-acoes">
+      <button type="button" class="btn-topo" id="btn-tema" aria-pressed="false" aria-label="Modo escuro"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="btn-topo" id="btn-nav" aria-expanded="false" aria-controls="nav-movel" aria-label="Menu"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <nav class="nav-movel" id="nav-movel" aria-label="Principal, celular" hidden><a href="index.html">Início</a><a href="ferramentas.html">Ferramentas</a><a href="aprender.html" aria-current="page">Aprender</a><a href="metodo.html">Método</a><a href="mercado.html">Mercado</a><a href="empresa.html">A empresa</a></nav>
+</header>
+<main id="conteudo">
+<article class="secao"><div class="dentro">
+  <div class="cabeca">
+    <p class="olho"><a href="aprender.html">Aprender</a> · Trilha 3, O efeito do tempo · Módulo 3.1</p>
+    <h1 class="titulo">Juros compostos, com a calculadora</h1>
+    <p class="lead">A conta mais importante dos investimentos, feita devagar.</p>
+  </div>
+  <dl class="aula-meta">
+    <div><dt>Leitura</dt><dd>11 minutos</dd></div>
+    <div><dt>Antes deste</dt><dd><a href="aula-politica-monetaria.html">2.4 O Banco Central e os juros</a></dd></div>
+    <div><dt>Ao final você consegue</dt><dd>Entender cada parte da fórmula dos juros compostos e conferir um exemplo na calculadora da Cerne.</dd></div>
+  </dl>
+  <div class="aula-grade">
+  <nav class="aula-indice" aria-label="Neste módulo">
+    <p>Neste módulo</p>
+    <ol><li><a href="#frase">Em uma frase</a></li><li><a href="#explicacao">Passo a passo</a></li><li><a href="#palavras">Palavras novas</a></li><li><a href="#exemplos">Exemplos</a></li><li><a href="#erro">Erro comum</a></li><li><a href="#resumo">Resumo</a></li><li><a href="#teste">Mini-teste</a></li><li><a href="#referencias">Referências</a></li></ol>
+  </nav>
+  <div class="texto aula-corpo">
+    <section class="frase" id="frase"><h2>Em uma frase</h2><p>Juros compostos são juros sobre juros: o que você ganha este mês também rende no mês que vem.</p></section>
+    <section class="analogia"><h2>Pense assim</h2><p>É uma bola de neve descendo o morro. No começo, pequena. A cada volta, pega mais neve, porque a própria bola já está maior. Quanto mais longo o morro, maior o resultado.</p></section>
+    <h2 id="explicacao">Passo a passo</h2>
+    <ol class="passos-aula"><li><h3>Juros simples e juros compostos</h3><p>Nos <b>juros simples</b>, o ganho é sempre calculado sobre o valor inicial. Rende a mesma quantia todo mês.</p><p>Nos <b>juros compostos</b>, o ganho entra no saldo e passa a render também. A cada mês, a base é maior. Aplicações e dívidas funcionam assim (Banco Central do Brasil, 2013).</p></li><li><h3>Três meses feitos na mão</h3><p>Você aplica R$ 1.000 a 1% ao mês.</p><ul><li>Mês 1: 1.000 + 1% de 1.000 = <b>1.010,00</b></li><li>Mês 2: 1.010 + 1% de 1.010 = <b>1.020,10</b></li><li>Mês 3: 1.020,10 + 1% de 1.020,10 = <b>1.030,30</b></li></ul><p>Nos juros simples, daria R$ 1.030,00. Os trinta centavos de diferença são juros sobre juros. Parece nada. Com o tempo, vira a maior parte do resultado.</p></li><li><h3>A fórmula</h3><p>Fazer mês a mês cansa. A fórmula faz tudo de uma vez:</p><p class="formula">M = C × (1 + i)<sup>n</sup></p><ul><li><b>M</b> é o montante: quanto você terá no fim.</li><li><b>C</b> é o capital: quanto você aplicou.</li><li><b>i</b> é a taxa, escrita como decimal: 1% vira 0,01.</li><li><b>n</b> é o número de períodos: quantos meses ou anos.</li></ul><p>O "n" pequeno e elevado quer dizer: multiplique (1 + i) por ele mesmo n vezes. No exemplo: 1.000 × 1,01 × 1,01 × 1,01 = 1.030,30.</p></li><li><h3>Quando você coloca dinheiro todo mês</h3><p>O valor que você acrescenta a cada mês se chama <b>aporte</b>. Com aportes, a fórmula ganha uma segunda parte:</p><p class="formula">M = C × (1 + i)<sup>n</sup> + A × [ (1 + i)<sup>n</sup> − 1 ] ÷ i</p><p>Não precisa decorar. A primeira parte é o valor inicial rendendo. A segunda é a soma de todos os aportes (A), cada um rendendo pelo tempo que ficou aplicado. A calculadora faz essa conta para você.</p></li><li><h3>Cuidado: taxa ao ano não se divide por doze</h3><p>Parece lógico que 12% ao ano seja 1% ao mês. Não é. Como os juros se acumulam, 1% ao mês durante doze meses dá 12,68% no ano.</p><p>A taxa mensal que realmente equivale a 12% ao ano é 0,949%. A conta é:</p><p class="formula">taxa mensal = (1 + taxa anual)<sup>1/12</sup> − 1</p><p>A calculadora faz essa conversão sozinha quando você escolhe "ao ano".</p></li></ol>
+    <section class="palavras" id="palavras"><h2>Palavras novas</h2><dl><div><dt>Capital</dt><dd>O valor que você aplica no começo.</dd></div><div><dt>Montante</dt><dd>O valor final: capital mais juros.</dd></div><div><dt>Aporte</dt><dd>O valor que você acrescenta de tempos em tempos.</dd></div><div><dt>Taxa equivalente</dt><dd>A taxa de um período que dá o mesmo resultado que a taxa de outro período.</dd></div></dl></section>
+    <h2 id="exemplos">Exemplos com a conta feita</h2>
+    <div class="exemplos"><section class="exemplo"><h3>Exemplo guiado na calculadora</h3>
+<ol class="guiado">
+  <li><b>Abra a calculadora já preenchida.</b> <a class="btn btn-primario" href="juros.html?inicial=1000&amp;aporte=300&amp;taxa=8&amp;periodo=ano&amp;prazo=15&amp;unidade=anos">Abrir o exemplo na calculadora</a></li>
+  <li><b>Confira os campos.</b> Valor inicial R$ 1.000, aporte mensal R$ 300, taxa de 8% ao ano, prazo de 15 anos.</li>
+  <li><b>Veja a taxa convertida.</b> Abaixo do campo aparece "Equivale a 0,64% ao mês". Esse é o i da fórmula. O n é 15 × 12 = 180 meses.</li>
+  <li><b>Leia o resultado.</b> Montante final: <b>R$ 104.454,06</b>. Você colocou R$ 55.000,00 do seu bolso. Os outros R$ 49.454,06 são juros.</li>
+  <li><b>Agora mude o prazo para 30 anos.</b> Você coloca R$ 109.000,00, quase o dobro. O montante vai a <b>R$ 432.627,83</b>, 4,1 vezes mais. Os juros passam a ser 75% do total.</li>
+  <li><b>Passe o dedo ou o cursor no gráfico.</b> A faixa dos juros começa fina e engrossa. É a bola de neve.</li>
+</ol>
+<p class="nota">A simulação usa taxa constante e não desconta inflação, impostos e custos. Serve para entender a conta, não para prever rendimento. Para conferir em outra ferramenta, use a Calculadora do Cidadão (Banco Central do Brasil, acesso em 2026).</p></section><section class="exemplo"><h3>Atalho: a regra do 72</h3><p>Para saber de cabeça em quanto tempo um valor dobra, divida 72 pela taxa anual.</p><p>A 8% ao ano: 72 ÷ 8 = <b>9 anos</b>. É uma aproximação, boa para taxas entre 4% e 12% ao ano.</p><p>Vale para dívida também: a 6% ao mês, ela dobra em cerca de 12 meses.</p></section></div>
+    <section class="erro-comum" id="erro"><h2>Erro comum</h2><p>Dar mais importância à taxa do que ao tempo. No exemplo, dobrar o prazo multiplicou o resultado por mais de quatro. Começar cedo pesa mais do que achar a melhor taxa.</p></section>
+    <section class="resumo" id="resumo"><h2>Resumo</h2><ul><li>Juros compostos: o ganho também passa a render.</li><li>Fórmula: M = C × (1 + i) elevado a n.</li><li>Taxa e prazo precisam estar na mesma unidade: mês com mês, ano com ano.</li><li>O tempo é o ingrediente mais forte.</li></ul></section>
+    <section class="teste" id="teste" data-aula="juros-compostos">
+      <h2>Mini-teste</h2>
+      <p>Três perguntas para fixar. A resposta aparece assim que você escolhe, e você pode tentar de novo.</p>
+      <fieldset class="questao" data-certa="1">
+        <legend>1. R$ 2.000 a 10% ao ano, em juros compostos, viram quanto em 2 anos?</legend>
+        <label><input type="radio" name="q0" value="0"><span>R$ 2.400,00</span></label><label><input type="radio" name="q0" value="1"><span>R$ 2.420,00</span></label><label><input type="radio" name="q0" value="2"><span>R$ 2.200,00</span></label>
+        <p class="retorno" hidden><b></b>2.000 × 1,10 × 1,10 = 2.420. Os R$ 20 a mais são juros sobre juros.</p>
+      </fieldset>
+      <fieldset class="questao" data-certa="0">
+        <legend>2. Por que 12% ao ano não é o mesmo que 1% ao mês?</legend>
+        <label><input type="radio" name="q1" value="0"><span>Porque 1% ao mês, acumulado em doze meses, dá mais de 12%.</span></label><label><input type="radio" name="q1" value="1"><span>Porque o ano tem 365 dias.</span></label><label><input type="radio" name="q1" value="2"><span>Porque a inflação muda a taxa.</span></label>
+        <p class="retorno" hidden><b></b>1% ao mês acumula 12,68% no ano.</p>
+      </fieldset>
+      <fieldset class="questao" data-certa="2">
+        <legend>3. Pela regra do 72, em quanto tempo um valor dobra a 6% ao ano?</legend>
+        <label><input type="radio" name="q2" value="0"><span>6 anos</span></label><label><input type="radio" name="q2" value="1"><span>18 anos</span></label><label><input type="radio" name="q2" value="2"><span>12 anos</span></label>
+        <p class="retorno" hidden><b></b>72 ÷ 6 = 12 anos.</p>
+      </fieldset>
+      <p class="teste-placar" role="status"></p>
+    </section>
+    <section class="referencias" id="referencias"><h2>Referências</h2><p>Confira você mesmo. As fontes abaixo sustentam os dados deste módulo.</p><ol><li>BANCO CENTRAL DO BRASIL. Caderno de Educação Financeira: Gestão de Finanças Pessoais. Brasília: BCB, 2013. Disponível em: <a href="https://www.bcb.gov.br/content/cidadaniafinanceira/documentos_cidadania/Cuidando_do_seu_dinheiro_Gestao_de_Financas_Pessoais/caderno_cidadania_financeira.pdf" rel="noopener noreferrer" target="_blank">bcb.gov.br</a>.</li><li>BANCO CENTRAL DO BRASIL. Calculadora do Cidadão. Acesso em nov. 2026. Disponível em: <a href="https://www3.bcb.gov.br/CALCIDADAO/publico/exibirFormCorrecaoValores.do?method=exibirFormCorrecaoValores" rel="noopener noreferrer" target="_blank">www3.bcb.gov.br</a>.</li></ol></section>
+    <nav class="aula-passos" aria-label="Módulos vizinhos">
+      <a href="aula-politica-monetaria.html"><span>Anterior · 2.4</span><b>O Banco Central e os juros</b></a>
+      <a href="aula-como-funciona-o-mercado.html"><span>Próximo · 4.1</span><b>Como o mercado financeiro funciona</b></a>
+    </nav>
+  </div>
+  </div>
+</div></article>
+</main>
+<aside class="decida" aria-label="Orientação ao leitor"><div class="dentro">
+  <p class="decida-titulo">Estude. Compare.<br><em>Decida por você.</em></p>
+  <p class="decida-texto">A Cerne explica e oferece ferramentas. Não diz o que comprar nem o que vender. Leia as fontes, forme a sua própria opinião e tome as suas decisões. Elas, e a responsabilidade por elas, são suas.</p>
+</div></aside>
+<footer class="rodape">
+  <div class="dentro">
+    <div class="rodape-grade">
+      <div>
+        <p class="rodape-marca"><svg class="logo" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="13.4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="14.4" cy="17.2" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12.9" cy="18.4" r="3.3" class="logo-miolo"/></svg><span>Cerne</span></p>
+        <p>Valor real antes do preço. Educação financeira de base fundamentalista, para quem busca liberdade e tranquilidade com o próprio dinheiro.</p>
+      </div>
+      <div>
+        <h2>Ferramentas</h2>
+        <ul><li><a href="carteira/">Monte sua carteira</a></li><li><a href="juros.html">Juros compostos</a></li><li><a href="liberdade.html">Liberdade financeira</a></li><li><a href="roteiro.html">Checagem do estudo</a></li></ul>
+      </div>
+      <div>
+        <h2>Cerne</h2>
+        <ul><li><a href="metodo.html">Como estudar uma empresa</a></li><li><a href="mercado.html">Panorama de mercado</a></li><li><a href="aprender.html">Área de aprendizagem</a></li><li><a href="empresa.html">A empresa</a></li><li><a href="empresa.html#transparencia">Transparência e privacidade</a></li></ul>
+      </div>
+    </div>
+    <p class="rodape-legal">Cerne é um projeto educacional. Não é corretora, gestora, consultoria nem analista de valores mobiliários, não tem registro na CVM e não vende produtos financeiros. Nada aqui é recomendação de investimento individualizada nem promessa de retorno. As decisões e os riscos são de quem investe.</p>
+  </div>
+</footer>
+<script src="site/site.js"></script>
+<script src="site/quiz.js"></script>
+</body>
+</html>
